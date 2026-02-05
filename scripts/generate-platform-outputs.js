@@ -222,14 +222,14 @@ function kotlinEnumEntryName(caseName) {
   return caseName.charAt(0).toUpperCase() + caseName.slice(1);
 }
 
-function emitSwift(categoriesMap, textStyles) {
-  const lines = [
-    '// Do not edit directly. Generated from design tokens.',
-    'import UIKit',
-    '',
-  ];
+function emitSwift(categoriesMap, textStyles, iosDir) {
   for (const [category, tokens] of categoriesMap) {
     const enumName = `Dodada${category.charAt(0).toUpperCase() + category.slice(1)}`;
+    const lines = [
+      '// Do not edit directly. Generated from design tokens.',
+      'import UIKit',
+      '',
+    ];
     lines.push(`public enum ${enumName}: CaseIterable {`);
     for (const t of tokens) {
       lines.push(`    case ${t.caseName}`);
@@ -324,9 +324,17 @@ function emitSwift(categoriesMap, textStyles) {
       fontWeightTokens,
       iconTokens,
     });
+
+    const fileName = `${enumName}.swift`;
+    require('fs').writeFileSync(require('path').join(iosDir, fileName), lines.join('\n'), 'utf8');
   }
 
   if (textStyles && textStyles.length > 0) {
+    const lines = [
+      '// Do not edit directly. Generated from design tokens.',
+      'import UIKit',
+      '',
+    ];
     lines.push('public struct DodadaFont {');
     lines.push('    public let family: String');
     lines.push('    public let size: CGFloat');
@@ -361,26 +369,26 @@ function emitSwift(categoriesMap, textStyles) {
     lines.push('    }');
     lines.push('}');
     lines.push('');
+    require('fs').writeFileSync(require('path').join(iosDir, 'DodadaTypography.swift'), lines.join('\n'), 'utf8');
   }
-  return lines.join('\n');
 }
 
 function escapeKotlinString(s) {
   return s.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
 }
 
-function emitKotlin(categoriesMap, textStyles) {
-  const lines = [
-    '// Do not edit directly. Generated from design tokens.',
-    'package com.dodada.tokens',
-    '',
-    'import androidx.compose.ui.unit.Dp',
-    'import androidx.compose.ui.unit.dp',
-    'import androidx.compose.ui.graphics.Color',
-    '',
-  ];
+function emitKotlin(categoriesMap, textStyles, androidDir) {
   for (const [category, tokens] of categoriesMap) {
     const enumName = `Dodada${category.charAt(0).toUpperCase() + category.slice(1)}`;
+    const lines = [
+      '// Do not edit directly. Generated from design tokens.',
+      'package com.dodada.tokens',
+      '',
+      'import androidx.compose.ui.unit.Dp',
+      'import androidx.compose.ui.unit.dp',
+      'import androidx.compose.ui.graphics.Color',
+      '',
+    ];
     lines.push(`enum class ${enumName} {`);
     for (const t of tokens) {
       lines.push(`    ${kotlinEnumEntryName(t.caseName)},`);
@@ -444,9 +452,19 @@ function emitKotlin(categoriesMap, textStyles) {
       lines.push(`    }`);
       lines.push('');
     }
+
+    const fileName = `${enumName}.kt`;
+    require('fs').writeFileSync(require('path').join(androidDir, fileName), lines.join('\n'), 'utf8');
   }
 
   if (textStyles && textStyles.length > 0) {
+    const lines = [
+      '// Do not edit directly. Generated from design tokens.',
+      'package com.dodada.tokens',
+      '',
+      'import androidx.compose.ui.graphics.Color',
+      '',
+    ];
     lines.push('data class DodadaFont(');
     lines.push('    val family: String,');
     lines.push('    val size: Float,');
@@ -479,8 +497,8 @@ function emitKotlin(categoriesMap, textStyles) {
     }
     lines.push('    }');
     lines.push('');
+    require('fs').writeFileSync(require('path').join(androidDir, 'DodadaTypography.kt'), lines.join('\n'), 'utf8');
   }
-  return lines.join('\n');
 }
 
 function emitTypeScript(categoriesMap, textStyles) {
@@ -578,10 +596,16 @@ async function main() {
     if (!fs.existsSync(d)) fs.mkdirSync(d, { recursive: true });
   });
 
-  fs.writeFileSync(path.join(iosDir, 'DodadaTokens.swift'), emitSwift(categoriesMap, textStyles), 'utf8');
-  fs.writeFileSync(path.join(androidDir, 'DodadaTokens.kt'), emitKotlin(categoriesMap, textStyles), 'utf8');
+  emitSwift(categoriesMap, textStyles, iosDir);
+  emitKotlin(categoriesMap, textStyles, androidDir);
   fs.writeFileSync(path.join(webDir, 'tokens.ts'), emitTypeScript(categoriesMap, textStyles), 'utf8');
   fs.writeFileSync(path.join(cssDir, 'variables.css'), emitCSS(categoriesMap), 'utf8');
+
+  // Eliminar archivos legacy monolíticos si aún existen
+  const legacySwift = path.join(iosDir, 'DodadaTokens.swift');
+  if (fs.existsSync(legacySwift)) fs.rmSync(legacySwift);
+  const legacyKotlin = path.join(androidDir, 'DodadaTokens.kt');
+  if (fs.existsSync(legacyKotlin)) fs.rmSync(legacyKotlin);
 
   const { runAssetGeneration } = require('./generate-assets.js');
   await runAssetGeneration(json, categoriesMap, getNodeAtPath, resolveRef);
