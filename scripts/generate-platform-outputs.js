@@ -40,15 +40,40 @@ function parseLetterSpacingEm(str) {
   return m ? parseFloat(m[1]) : undefined;
 }
 
-function swiftCaseName(segment) {
-  if (/^\d/.test(segment)) return `_${segment}`;
+/** Mapa de segmentos a identificadores válidos (SwiftLint/ktlint). Evita _0 y snake_case. */
+const SWIFT_SAFE_SEGMENT = {
+  '0': 'zero',
+  '2xs': 'twoXs',
+  '2xl': 'twoXl',
+  '3xl': 'threeXl',
+  '4xl': 'fourXl',
+  '5xl': 'fiveXl',
+  level_0: 'levelZero',
+  level_1: 'levelOne',
+  level_2: 'levelTwo',
+  level_3: 'levelThree',
+  level_4: 'levelFour',
+  blurNone: 'blurNone',
+};
+
+function swiftSafeSegment(segment) {
+  if (SWIFT_SAFE_SEGMENT[segment] !== undefined) return SWIFT_SAFE_SEGMENT[segment];
+  if (/^\d+$/.test(segment)) {
+    const words = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+    return segment.length === 1 ? words[parseInt(segment, 10)] : 'value' + segment;
+  }
+  if (/^\d/.test(segment)) {
+    const numWord = { 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six', 7: 'seven', 8: 'eight', 9: 'nine' }[segment.charAt(0)];
+    const rest = segment.slice(1).replace(/^([a-z])/, (_, c) => c.toUpperCase());
+    return numWord ? numWord + rest : 'value' + segment.replace(/^(\d)/, '_$1');
+  }
   return segment;
 }
 
 function pathToCaseName(pathSegments) {
   return pathSegments
     .map((seg, i) => {
-      const safe = swiftCaseName(seg);
+      const safe = swiftSafeSegment(seg);
       return i === 0 ? safe : safe.charAt(0).toUpperCase() + safe.slice(1);
     })
     .join('');
@@ -153,6 +178,46 @@ function swiftCGFloatLiteral(n) {
   return `CGFloat(${n})`;
 }
 
+/** Emite protocolo *Tokens y un struct implementador para un enum de categoría (iOS). */
+function emitSwiftProtocol(lines, enumName, tokens, flags) {
+  const { hasDimensionOrNumber, colorTokens, fontFamilyTokens, fontWeightTokens, iconTokens } = flags;
+  let valueType = null;
+  let valueAccessor = null;
+  if (hasDimensionOrNumber) {
+    valueType = 'CGFloat';
+    valueAccessor = 'value';
+  } else if (colorTokens.length > 0) {
+    valueType = 'String';
+    valueAccessor = 'assetName';
+  } else if (fontFamilyTokens.length > 0) {
+    valueType = 'String';
+    valueAccessor = 'value';
+  } else if (fontWeightTokens.length > 0) {
+    valueType = 'CGFloat';
+    valueAccessor = 'value';
+  } else if (iconTokens.length > 0) {
+    valueType = 'String';
+    valueAccessor = 'assetName';
+  }
+  if (valueType == null || tokens.length === 0) return;
+
+  const protocolName = `${enumName}Tokens`;
+  lines.push(`public protocol ${protocolName} {`);
+  for (const t of tokens) {
+    lines.push(`    static var ${t.caseName}: ${valueType} { get }`);
+  }
+  lines.push('}');
+  lines.push('');
+  const baseName = enumName.startsWith('Dodada') ? enumName.slice('Dodada'.length) : enumName;
+  const implName = `DodadaTheme${baseName}Tokens`;
+  lines.push(`public struct ${implName}: ${protocolName} {`);
+  for (const t of tokens) {
+    lines.push(`    public static var ${t.caseName}: ${valueType} { ${enumName}.${t.caseName}.${valueAccessor} }`);
+  }
+  lines.push('}');
+  lines.push('');
+}
+
 function kotlinEnumEntryName(caseName) {
   return caseName.charAt(0).toUpperCase() + caseName.slice(1);
 }
@@ -251,6 +316,14 @@ function emitSwift(categoriesMap, textStyles) {
       lines.push('}');
       lines.push('');
     }
+
+    emitSwiftProtocol(lines, enumName, tokens, {
+      hasDimensionOrNumber,
+      colorTokens,
+      fontFamilyTokens,
+      fontWeightTokens,
+      iconTokens,
+    });
   }
 
   if (textStyles && textStyles.length > 0) {
