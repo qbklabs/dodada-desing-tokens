@@ -1,0 +1,1084 @@
+{
+  "$schema": "https://design-tokens.org/draft/json-schema.json",
+  "typography": {
+    "fontFamily": {
+      "primary": {
+        "$value": "{font.family.primary}",
+        "$type": "fontFamily",
+        "$description": "Primary font family - Quicksand"
+      },
+      "system": {
+        "$value": "{font.family.system}",
+        "$type": "fontFamily",
+        "$description": "System font fallback"
+      }
+    },
+    "fontWeight": {
+      "light": {
+        "$value": "{font.weight.light}",
+        "$type": "fontWeight",
+        "$description": "Light weight - 300"
+      },
+      "regular": {
+        "$value": "{font.weight.regular}",
+        "$type": "fontWeight",
+        "$description": "Regular weight - 400"
+      },
+      "medium": {
+        "$value": "{font.weight.medium}",
+        "$type": "fontWeight",
+        "$description": "Medium weight - 500"
+      },
+      "semibold": {
+        "$value": "{font.weight.semibold}",
+        "$type": "fontWeight",
+        "$description": "Semibold weight - 600"
+      },
+      "bold": {
+        "$value": "{font.weight.bold}",
+        "$type": "fontWeight",
+        "$description": "Bold weight - 700"
+      }
+    },
+    "size": {
+      "xs": {
+        "$value": "11px",
+        "$type": "dimension",
+        "$description": "Extra small text - legal, captions"
+      },
+      "sm": {
+        "$value": "12px",
+        "$type": "dimension",
+        "$description": "Small text - secondary info, labels"
+      },
+      "md": {
+        "$value": "13px",
+        "$type": "dimension",
+        "$description": "Medium text - body text, default"
+      },
+      "lg": {
+        "$value": "15px",
+        "$type": "dimension",
+        "$description": "Large text - emphasized body, large labels"
+      },
+      "xl": {
+        "$value": "16px",
+        "$type": "dimension",
+        "$description": "Extra large text - subtitles"
+      },
+      "2xl": {
+        "$value": "17px",
+        "$type": "dimension",
+        "$description": "2x extra large - small headings"
+      },
+      "3xl": {
+        "$value": "18px",
+        "$type": "dimension",
+        "$description": "3x extra large - medium headings"
+      },
+      "4xl": {
+        "$value": "20px",
+        "$type": "dimension",
+        "$description": "4x extra large - large headings"
+      },
+      "5xl": {
+        "$value": "22px",
+        "$type": "dimension",
+        "$description": "5x extra large - extra large headings"
+      },
+      "6xl": {
+        "$value": "28px",
+        "$type": "dimension",
+        "$description": "6x extra large - hero text"
+      },
+      "7xl": {
+        "$value": "34px",
+        "$type": "dimension",
+        "$description": "7x extra large - display text"
+      }
+    },
+    "lineHeight": {
+      "tight": {
+        "$value": "1.2",
+        "$type": "number",
+        "$description": "Tight line height - headings"
+      },
+      "normal": {
+        "$value": "1.5",
+        "$type": "number",
+        "$description": "Normal line height - body text"
+      },
+      "relaxed": {
+        "$value": "1.75",
+        "$type": "number",
+        "$description": "Relaxed line height - comfortable reading"
+      },
+      "loose": {
+        "$value": "2",
+        "$type": "number",
+        "$description": "Loose line height - dramatic spacing"
+      }
+    },
+    "letterSpacing": {
+      "tighter": {
+        "$value": "-0.05em",
+        "$type": "dimension",
+        "$description": "Tighter letter spacing"
+      },
+      "tight": {
+        "$value": "-0.025em",
+        "$type": "dimension",
+        "$description": "Tight letter spacing"
+      },
+      "normal": {
+        "$value": "0em",
+        "$type": "dimension",
+        "$description": "Normal letter spacing"
+      },
+      "wide": {
+        "$value": "0.025em",
+        "$type": "dimension",
+        "$description": "Wide letter spacing"
+      },
+      "wider": {
+        "$value": "0.05em",
+        "$type": "dimension",
+        "$description": "Wider letter spacing"
+      },
+      "widest": {
+        "$value": "0.1em",
+        "$type": "dimension",
+        "$description": "Widest letter spacing - all caps, labels"
+      }
+    },
+    "text": {
+      "largeTitle": {
+        "regular": {
+          "fontFamily": {
+            "$value": "{typography.fontFamily.primary}",
+            "$type": "fontFamily"
+          },
+          "fontSize": {
+            "$value": "{typography.size.6xl}",
+            "$type": "dimension",
+            "$description": "Large title font size - 40px"
+          },
+          "fontWeight": {
+            "$value": "{typography.fontWeight.regular}",
+            "$type": "fontWeight"
+          },
+          "lineHeight": {
+            "$value": "{typography.lineHeight.tight}",
+            "$type": "number"
+          },
+          "letterSpacing": {
+            "$value": "{typography.letterSpacing.tight}",
+            "$type": "dimension"
+          },
+          "$description": "Large Title - Regular (Quicksand)"
+        },
+        "bold": {
+          "fontFamily": {
+            "$value": "{typography.fontFamily.primary}",
+            "$type": "fontFamily"
+          },
+          "fontSize": {
+            "$value": "{typography.size.6xl}",
+            "$type": "dimension"
+          },
+          "fontWeight": {
+            "$value": "{typography.fontWeight.bold}",
+            "$type": "fontWeight"
+          },
+          "lineHeight": {
+            "$value": "{typography.lineHeight.tight}",
+            "$type": "number"
+          },
+          "$description": "Large Title - Bold"
+        },
+        "boldUnderline": {
+          "fontFamily": {
+            "$value": "{typography.fontFamily.primary}",
+            "$type": "fontFamily"
+          },
+          "fontSize": {
+            "$value": "{typography.size.6xl}",
+            "$type": "dimension"
+          },
+          "fontWeight": {
+            "$value": "{typography.fontWeight.bold}",
+            "$type": "fontWeight"
+          },
+          "lineHeight": {
+            "$value": "{typography.lineHeight.tight}",
+            "$type": "number"
+          },
+          "textDecoration": {
+            "$value": "underline",
+            "$type": "string"
+          },
+          "$description": "Large Title - Bold Underline"
+        }
+      },
+      "title1": {
+        "regular": {
+          "fontFamily": {
+            "$value": "{typography.fontFamily.primary}",
+            "$type": "fontFamily"
+          },
+          "fontSize": {
+            "$value": "{typography.size.5xl}",
+            "$type": "dimension",
+            "$description": "Title1 font size - 32px"
+          },
+          "fontWeight": {
+            "$value": "{typography.fontWeight.regular}",
+            "$type": "fontWeight"
+          },
+          "lineHeight": {
+            "$value": "{typography.lineHeight.tight}",
+            "$type": "number"
+          },
+          "$description": "Title1 - Regular"
+        },
+        "bold": {
+          "fontFamily": {
+            "$value": "{typography.fontFamily.primary}",
+            "$type": "fontFamily"
+          },
+          "fontSize": {
+            "$value": "{typography.size.5xl}",
+            "$type": "dimension"
+          },
+          "fontWeight": {
+            "$value": "{typography.fontWeight.bold}",
+            "$type": "fontWeight"
+          },
+          "lineHeight": {
+            "$value": "{typography.lineHeight.tight}",
+            "$type": "number"
+          },
+          "$description": "Title1 - Bold"
+        },
+        "boldUnderline": {
+          "fontFamily": {
+            "$value": "{typography.fontFamily.primary}",
+            "$type": "fontFamily"
+          },
+          "fontSize": {
+            "$value": "{typography.size.5xl}",
+            "$type": "dimension"
+          },
+          "fontWeight": {
+            "$value": "{typography.fontWeight.bold}",
+            "$type": "fontWeight"
+          },
+          "lineHeight": {
+            "$value": "{typography.lineHeight.tight}",
+            "$type": "number"
+          },
+          "textDecoration": {
+            "$value": "underline",
+            "$type": "string"
+          },
+          "$description": "Title1 - Bold Underline"
+        }
+      },
+      "title2": {
+        "regular": {
+          "fontFamily": {
+            "$value": "{typography.fontFamily.primary}",
+            "$type": "fontFamily"
+          },
+          "fontSize": {
+            "$value": "{typography.size.4xl}",
+            "$type": "dimension",
+            "$description": "Title2 font size - 28px"
+          },
+          "fontWeight": {
+            "$value": "{typography.fontWeight.regular}",
+            "$type": "fontWeight"
+          },
+          "lineHeight": {
+            "$value": "{typography.lineHeight.tight}",
+            "$type": "number"
+          },
+          "$description": "Title2 - Regular"
+        },
+        "bold": {
+          "fontFamily": {
+            "$value": "{typography.fontFamily.primary}",
+            "$type": "fontFamily"
+          },
+          "fontSize": {
+            "$value": "{typography.size.4xl}",
+            "$type": "dimension"
+          },
+          "fontWeight": {
+            "$value": "{typography.fontWeight.bold}",
+            "$type": "fontWeight"
+          },
+          "lineHeight": {
+            "$value": "{typography.lineHeight.tight}",
+            "$type": "number"
+          },
+          "$description": "Title2 - Bold"
+        },
+        "boldUnderline": {
+          "fontFamily": {
+            "$value": "{typography.fontFamily.primary}",
+            "$type": "fontFamily"
+          },
+          "fontSize": {
+            "$value": "{typography.size.4xl}",
+            "$type": "dimension"
+          },
+          "fontWeight": {
+            "$value": "{typography.fontWeight.bold}",
+            "$type": "fontWeight"
+          },
+          "lineHeight": {
+            "$value": "{typography.lineHeight.tight}",
+            "$type": "number"
+          },
+          "textDecoration": {
+            "$value": "underline",
+            "$type": "string"
+          },
+          "$description": "Title2 - Bold Underline"
+        }
+      },
+      "title3": {
+        "regular": {
+          "fontFamily": {
+            "$value": "{typography.fontFamily.primary}",
+            "$type": "fontFamily"
+          },
+          "fontSize": {
+            "$value": "{typography.size.3xl}",
+            "$type": "dimension",
+            "$description": "Title3 font size - 24px"
+          },
+          "fontWeight": {
+            "$value": "{typography.fontWeight.regular}",
+            "$type": "fontWeight"
+          },
+          "lineHeight": {
+            "$value": "{typography.lineHeight.tight}",
+            "$type": "number"
+          },
+          "$description": "Title3 - Regular"
+        },
+        "bold": {
+          "fontFamily": {
+            "$value": "{typography.fontFamily.primary}",
+            "$type": "fontFamily"
+          },
+          "fontSize": {
+            "$value": "{typography.size.3xl}",
+            "$type": "dimension"
+          },
+          "fontWeight": {
+            "$value": "{typography.fontWeight.bold}",
+            "$type": "fontWeight"
+          },
+          "lineHeight": {
+            "$value": "{typography.lineHeight.tight}",
+            "$type": "number"
+          },
+          "$description": "Title3 - Bold"
+        },
+        "boldUnderline": {
+          "fontFamily": {
+            "$value": "{typography.fontFamily.primary}",
+            "$type": "fontFamily"
+          },
+          "fontSize": {
+            "$value": "{typography.size.3xl}",
+            "$type": "dimension"
+          },
+          "fontWeight": {
+            "$value": "{typography.fontWeight.bold}",
+            "$type": "fontWeight"
+          },
+          "lineHeight": {
+            "$value": "{typography.lineHeight.tight}",
+            "$type": "number"
+          },
+          "textDecoration": {
+            "$value": "underline",
+            "$type": "string"
+          },
+          "$description": "Title3 - Bold Underline"
+        }
+      },
+      "headline": {
+        "regular": {
+          "fontFamily": {
+            "$value": "{typography.fontFamily.primary}",
+            "$type": "fontFamily"
+          },
+          "fontSize": {
+            "$value": "{typography.size.2xl}",
+            "$type": "dimension",
+            "$description": "Headline font size - 20px"
+          },
+          "fontWeight": {
+            "$value": "{typography.fontWeight.regular}",
+            "$type": "fontWeight"
+          },
+          "lineHeight": {
+            "$value": "{typography.lineHeight.normal}",
+            "$type": "number"
+          },
+          "$description": "Headline - Regular"
+        },
+        "bold": {
+          "fontFamily": {
+            "$value": "{typography.fontFamily.primary}",
+            "$type": "fontFamily"
+          },
+          "fontSize": {
+            "$value": "{typography.size.2xl}",
+            "$type": "dimension"
+          },
+          "fontWeight": {
+            "$value": "{typography.fontWeight.bold}",
+            "$type": "fontWeight"
+          },
+          "lineHeight": {
+            "$value": "{typography.lineHeight.normal}",
+            "$type": "number"
+          },
+          "$description": "Headline - Bold"
+        },
+        "boldUnderline": {
+          "fontFamily": {
+            "$value": "{typography.fontFamily.primary}",
+            "$type": "fontFamily"
+          },
+          "fontSize": {
+            "$value": "{typography.size.2xl}",
+            "$type": "dimension"
+          },
+          "fontWeight": {
+            "$value": "{typography.fontWeight.bold}",
+            "$type": "fontWeight"
+          },
+          "lineHeight": {
+            "$value": "{typography.lineHeight.normal}",
+            "$type": "number"
+          },
+          "textDecoration": {
+            "$value": "underline",
+            "$type": "string"
+          },
+          "$description": "Headline - Bold Underline"
+        }
+      },
+      "display": {
+        "size": {
+          "$value": "{typography.size.7xl}",
+          "$type": "dimension",
+          "$description": "Display text size"
+        },
+        "lineHeight": {
+          "$value": "{typography.lineHeight.tight}",
+          "$type": "number",
+          "$description": "Display text line height"
+        },
+        "letterSpacing": {
+          "$value": "{typography.letterSpacing.tight}",
+          "$type": "dimension",
+          "$description": "Display text letter spacing"
+        }
+      },
+      "h1": {
+        "size": {
+          "$value": "{typography.size.6xl}",
+          "$type": "dimension",
+          "$description": "H1 heading size"
+        },
+        "lineHeight": {
+          "$value": "{typography.lineHeight.tight}",
+          "$type": "number",
+          "$description": "H1 line height"
+        },
+        "letterSpacing": {
+          "$value": "{typography.letterSpacing.tight}",
+          "$type": "dimension",
+          "$description": "H1 letter spacing"
+        }
+      },
+      "h2": {
+        "size": {
+          "$value": "{typography.size.5xl}",
+          "$type": "dimension",
+          "$description": "H2 heading size"
+        },
+        "lineHeight": {
+          "$value": "{typography.lineHeight.tight}",
+          "$type": "number",
+          "$description": "H2 line height"
+        },
+        "letterSpacing": {
+          "$value": "{typography.letterSpacing.tight}",
+          "$type": "dimension",
+          "$description": "H2 letter spacing"
+        }
+      },
+      "h3": {
+        "size": {
+          "$value": "{typography.size.4xl}",
+          "$type": "dimension",
+          "$description": "H3 heading size"
+        },
+        "lineHeight": {
+          "$value": "{typography.lineHeight.tight}",
+          "$type": "number",
+          "$description": "H3 line height"
+        },
+        "letterSpacing": {
+          "$value": "{typography.letterSpacing.normal}",
+          "$type": "dimension",
+          "$description": "H3 letter spacing"
+        }
+      },
+      "h4": {
+        "size": {
+          "$value": "{typography.size.3xl}",
+          "$type": "dimension",
+          "$description": "H4 heading size"
+        },
+        "lineHeight": {
+          "$value": "{typography.lineHeight.tight}",
+          "$type": "number",
+          "$description": "H4 line height"
+        },
+        "letterSpacing": {
+          "$value": "{typography.letterSpacing.normal}",
+          "$type": "dimension",
+          "$description": "H4 letter spacing"
+        }
+      },
+      "h5": {
+        "size": {
+          "$value": "{typography.size.2xl}",
+          "$type": "dimension",
+          "$description": "H5 heading size"
+        },
+        "lineHeight": {
+          "$value": "{typography.lineHeight.normal}",
+          "$type": "number",
+          "$description": "H5 line height"
+        },
+        "letterSpacing": {
+          "$value": "{typography.letterSpacing.normal}",
+          "$type": "dimension",
+          "$description": "H5 letter spacing"
+        }
+      },
+      "h6": {
+        "size": {
+          "$value": "{typography.size.xl}",
+          "$type": "dimension",
+          "$description": "H6 heading size"
+        },
+        "lineHeight": {
+          "$value": "{typography.lineHeight.normal}",
+          "$type": "number",
+          "$description": "H6 line height"
+        },
+        "letterSpacing": {
+          "$value": "{typography.letterSpacing.normal}",
+          "$type": "dimension",
+          "$description": "H6 letter spacing"
+        }
+      },
+      "body": {
+        "regular": {
+          "fontFamily": {
+            "$value": "{typography.fontFamily.primary}",
+            "$type": "fontFamily"
+          },
+          "fontSize": {
+            "$value": "{typography.size.lg}",
+            "$type": "dimension",
+            "$description": "Body font size - 16px"
+          },
+          "fontWeight": {
+            "$value": "{typography.fontWeight.regular}",
+            "$type": "fontWeight"
+          },
+          "lineHeight": {
+            "$value": "{typography.lineHeight.normal}",
+            "$type": "number"
+          },
+          "$description": "Body - Regular (default text)"
+        },
+        "bold": {
+          "fontFamily": {
+            "$value": "{typography.fontFamily.primary}",
+            "$type": "fontFamily"
+          },
+          "fontSize": {
+            "$value": "{typography.size.lg}",
+            "$type": "dimension"
+          },
+          "fontWeight": {
+            "$value": "{typography.fontWeight.bold}",
+            "$type": "fontWeight"
+          },
+          "lineHeight": {
+            "$value": "{typography.lineHeight.normal}",
+            "$type": "number"
+          },
+          "$description": "Body - Bold"
+        },
+        "boldUnderline": {
+          "fontFamily": {
+            "$value": "{typography.fontFamily.primary}",
+            "$type": "fontFamily"
+          },
+          "fontSize": {
+            "$value": "{typography.size.lg}",
+            "$type": "dimension"
+          },
+          "fontWeight": {
+            "$value": "{typography.fontWeight.bold}",
+            "$type": "fontWeight"
+          },
+          "lineHeight": {
+            "$value": "{typography.lineHeight.normal}",
+            "$type": "number"
+          },
+          "textDecoration": {
+            "$value": "underline",
+            "$type": "string"
+          },
+          "$description": "Body - Bold Underline"
+        },
+        "size": {
+          "$value": "{typography.size.lg}",
+          "$type": "dimension",
+          "$description": "Body text size (legacy)"
+        },
+        "lineHeight": {
+          "$value": "{typography.lineHeight.normal}",
+          "$type": "number",
+          "$description": "Body text line height (legacy)"
+        },
+        "letterSpacing": {
+          "$value": "{typography.letterSpacing.normal}",
+          "$type": "dimension",
+          "$description": "Body text letter spacing (legacy)"
+        }
+      },
+      "callout": {
+        "regular": {
+          "fontFamily": {
+            "$value": "{typography.fontFamily.primary}",
+            "$type": "fontFamily"
+          },
+          "fontSize": {
+            "$value": "{typography.size.md}",
+            "$type": "dimension",
+            "$description": "Callout font size - 14px"
+          },
+          "fontWeight": {
+            "$value": "{typography.fontWeight.regular}",
+            "$type": "fontWeight"
+          },
+          "lineHeight": {
+            "$value": "{typography.lineHeight.normal}",
+            "$type": "number"
+          },
+          "$description": "Callout - Regular"
+        },
+        "bold": {
+          "fontFamily": {
+            "$value": "{typography.fontFamily.primary}",
+            "$type": "fontFamily"
+          },
+          "fontSize": {
+            "$value": "{typography.size.md}",
+            "$type": "dimension"
+          },
+          "fontWeight": {
+            "$value": "{typography.fontWeight.bold}",
+            "$type": "fontWeight"
+          },
+          "lineHeight": {
+            "$value": "{typography.lineHeight.normal}",
+            "$type": "number"
+          },
+          "$description": "Callout - Bold"
+        },
+        "boldUnderline": {
+          "fontFamily": {
+            "$value": "{typography.fontFamily.primary}",
+            "$type": "fontFamily"
+          },
+          "fontSize": {
+            "$value": "{typography.size.md}",
+            "$type": "dimension"
+          },
+          "fontWeight": {
+            "$value": "{typography.fontWeight.bold}",
+            "$type": "fontWeight"
+          },
+          "lineHeight": {
+            "$value": "{typography.lineHeight.normal}",
+            "$type": "number"
+          },
+          "textDecoration": {
+            "$value": "underline",
+            "$type": "string"
+          },
+          "$description": "Callout - Bold Underline"
+        }
+      },
+      "subheadline": {
+        "regular": {
+          "fontFamily": {
+            "$value": "{typography.fontFamily.primary}",
+            "$type": "fontFamily"
+          },
+          "fontSize": {
+            "$value": "{typography.size.sm}",
+            "$type": "dimension",
+            "$description": "Subheadline font size - 12px"
+          },
+          "fontWeight": {
+            "$value": "{typography.fontWeight.regular}",
+            "$type": "fontWeight"
+          },
+          "lineHeight": {
+            "$value": "{typography.lineHeight.normal}",
+            "$type": "number"
+          },
+          "$description": "Subheadline - Regular"
+        },
+        "bold": {
+          "fontFamily": {
+            "$value": "{typography.fontFamily.primary}",
+            "$type": "fontFamily"
+          },
+          "fontSize": {
+            "$value": "{typography.size.sm}",
+            "$type": "dimension"
+          },
+          "fontWeight": {
+            "$value": "{typography.fontWeight.bold}",
+            "$type": "fontWeight"
+          },
+          "lineHeight": {
+            "$value": "{typography.lineHeight.normal}",
+            "$type": "number"
+          },
+          "$description": "Subheadline - Bold"
+        },
+        "boldUnderline": {
+          "fontFamily": {
+            "$value": "{typography.fontFamily.primary}",
+            "$type": "fontFamily"
+          },
+          "fontSize": {
+            "$value": "{typography.size.sm}",
+            "$type": "dimension"
+          },
+          "fontWeight": {
+            "$value": "{typography.fontWeight.bold}",
+            "$type": "fontWeight"
+          },
+          "lineHeight": {
+            "$value": "{typography.lineHeight.normal}",
+            "$type": "number"
+          },
+          "textDecoration": {
+            "$value": "underline",
+            "$type": "string"
+          },
+          "$description": "Subheadline - Bold Underline"
+        }
+      },
+      "footnote": {
+        "regular": {
+          "fontFamily": {
+            "$value": "{typography.fontFamily.primary}",
+            "$type": "fontFamily"
+          },
+          "fontSize": {
+            "$value": "{typography.size.xs}",
+            "$type": "dimension",
+            "$description": "Footnote font size - 10px"
+          },
+          "fontWeight": {
+            "$value": "{typography.fontWeight.regular}",
+            "$type": "fontWeight"
+          },
+          "lineHeight": {
+            "$value": "{typography.lineHeight.normal}",
+            "$type": "number"
+          },
+          "$description": "Footnote - Regular"
+        },
+        "bold": {
+          "fontFamily": {
+            "$value": "{typography.fontFamily.primary}",
+            "$type": "fontFamily"
+          },
+          "fontSize": {
+            "$value": "{typography.size.xs}",
+            "$type": "dimension"
+          },
+          "fontWeight": {
+            "$value": "{typography.fontWeight.bold}",
+            "$type": "fontWeight"
+          },
+          "lineHeight": {
+            "$value": "{typography.lineHeight.normal}",
+            "$type": "number"
+          },
+          "$description": "Footnote - Bold"
+        },
+        "boldUnderline": {
+          "fontFamily": {
+            "$value": "{typography.fontFamily.primary}",
+            "$type": "fontFamily"
+          },
+          "fontSize": {
+            "$value": "{typography.size.xs}",
+            "$type": "dimension"
+          },
+          "fontWeight": {
+            "$value": "{typography.fontWeight.bold}",
+            "$type": "fontWeight"
+          },
+          "lineHeight": {
+            "$value": "{typography.lineHeight.normal}",
+            "$type": "number"
+          },
+          "textDecoration": {
+            "$value": "underline",
+            "$type": "string"
+          },
+          "$description": "Footnote - Bold Underline"
+        }
+      },
+      "bodyLarge": {
+        "size": {
+          "$value": "{typography.size.lg}",
+          "$type": "dimension",
+          "$description": "Large body text size"
+        },
+        "lineHeight": {
+          "$value": "{typography.lineHeight.normal}",
+          "$type": "number",
+          "$description": "Large body text line height"
+        },
+        "letterSpacing": {
+          "$value": "{typography.letterSpacing.normal}",
+          "$type": "dimension",
+          "$description": "Large body text letter spacing"
+        }
+      },
+      "bodySmall": {
+        "size": {
+          "$value": "{typography.size.sm}",
+          "$type": "dimension",
+          "$description": "Small body text size"
+        },
+        "lineHeight": {
+          "$value": "{typography.lineHeight.normal}",
+          "$type": "number",
+          "$description": "Small body text line height"
+        },
+        "letterSpacing": {
+          "$value": "{typography.letterSpacing.normal}",
+          "$type": "dimension",
+          "$description": "Small body text letter spacing"
+        }
+      },
+      "caption1": {
+        "regular": {
+          "fontFamily": {
+            "$value": "{typography.fontFamily.primary}",
+            "$type": "fontFamily"
+          },
+          "fontSize": {
+            "$value": "{typography.size.sm}",
+            "$type": "dimension",
+            "$description": "Caption1 font size - 12px"
+          },
+          "fontWeight": {
+            "$value": "{typography.fontWeight.regular}",
+            "$type": "fontWeight"
+          },
+          "lineHeight": {
+            "$value": "{typography.lineHeight.normal}",
+            "$type": "number"
+          },
+          "$description": "Caption1 - Regular"
+        },
+        "bold": {
+          "fontFamily": {
+            "$value": "{typography.fontFamily.primary}",
+            "$type": "fontFamily"
+          },
+          "fontSize": {
+            "$value": "{typography.size.sm}",
+            "$type": "dimension"
+          },
+          "fontWeight": {
+            "$value": "{typography.fontWeight.bold}",
+            "$type": "fontWeight"
+          },
+          "lineHeight": {
+            "$value": "{typography.lineHeight.normal}",
+            "$type": "number"
+          },
+          "$description": "Caption1 - Bold"
+        },
+        "boldUnderline": {
+          "fontFamily": {
+            "$value": "{typography.fontFamily.primary}",
+            "$type": "fontFamily"
+          },
+          "fontSize": {
+            "$value": "{typography.size.sm}",
+            "$type": "dimension"
+          },
+          "fontWeight": {
+            "$value": "{typography.fontWeight.bold}",
+            "$type": "fontWeight"
+          },
+          "lineHeight": {
+            "$value": "{typography.lineHeight.normal}",
+            "$type": "number"
+          },
+          "textDecoration": {
+            "$value": "underline",
+            "$type": "string"
+          },
+          "$description": "Caption1 - Bold Underline"
+        }
+      },
+      "caption2": {
+        "regular": {
+          "fontFamily": {
+            "$value": "{typography.fontFamily.primary}",
+            "$type": "fontFamily"
+          },
+          "fontSize": {
+            "$value": "{typography.size.xs}",
+            "$type": "dimension",
+            "$description": "Caption2 font size - 10px"
+          },
+          "fontWeight": {
+            "$value": "{typography.fontWeight.regular}",
+            "$type": "fontWeight"
+          },
+          "lineHeight": {
+            "$value": "{typography.lineHeight.normal}",
+            "$type": "number"
+          },
+          "$description": "Caption2 - Regular"
+        },
+        "bold": {
+          "fontFamily": {
+            "$value": "{typography.fontFamily.primary}",
+            "$type": "fontFamily"
+          },
+          "fontSize": {
+            "$value": "{typography.size.xs}",
+            "$type": "dimension"
+          },
+          "fontWeight": {
+            "$value": "{typography.fontWeight.bold}",
+            "$type": "fontWeight"
+          },
+          "lineHeight": {
+            "$value": "{typography.lineHeight.normal}",
+            "$type": "number"
+          },
+          "$description": "Caption2 - Bold"
+        },
+        "boldUnderline": {
+          "fontFamily": {
+            "$value": "{typography.fontFamily.primary}",
+            "$type": "fontFamily"
+          },
+          "fontSize": {
+            "$value": "{typography.size.xs}",
+            "$type": "dimension"
+          },
+          "fontWeight": {
+            "$value": "{typography.fontWeight.bold}",
+            "$type": "fontWeight"
+          },
+          "lineHeight": {
+            "$value": "{typography.lineHeight.normal}",
+            "$type": "number"
+          },
+          "textDecoration": {
+            "$value": "underline",
+            "$type": "string"
+          },
+          "$description": "Caption2 - Bold Underline"
+        }
+      },
+      "caption": {
+        "size": {
+          "$value": "{typography.size.sm}",
+          "$type": "dimension",
+          "$description": "Caption text size (legacy)"
+        },
+        "lineHeight": {
+          "$value": "{typography.lineHeight.normal}",
+          "$type": "number",
+          "$description": "Caption text line height (legacy)"
+        },
+        "letterSpacing": {
+          "$value": "{typography.letterSpacing.wide}",
+          "$type": "dimension",
+          "$description": "Caption text letter spacing (legacy)"
+        }
+      },
+      "overline": {
+        "size": {
+          "$value": "{typography.size.xs}",
+          "$type": "dimension",
+          "$description": "Overline text size (all caps labels)"
+        },
+        "lineHeight": {
+          "$value": "{typography.lineHeight.normal}",
+          "$type": "number",
+          "$description": "Overline text line height"
+        },
+        "letterSpacing": {
+          "$value": "{typography.letterSpacing.widest}",
+          "$type": "dimension",
+          "$description": "Overline text letter spacing"
+        }
+      },
+      "label": {
+        "size": {
+          "$value": "{typography.size.sm}",
+          "$type": "dimension",
+          "$description": "Label text size"
+        },
+        "lineHeight": {
+          "$value": "{typography.lineHeight.normal}",
+          "$type": "number",
+          "$description": "Label text line height"
+        },
+        "letterSpacing": {
+          "$value": "{typography.letterSpacing.normal}",
+          "$type": "dimension",
+          "$description": "Label text letter spacing"
+        }
+      }
+    }
+  }
+}

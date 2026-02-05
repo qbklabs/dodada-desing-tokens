@@ -1,0 +1,41 @@
+{
+  "name": "dodada-design-tokens",
+  "version": "1.1.0",
+  "description": "Design System multiplataforma (iOS, Android, KMP, Web). Design Tokens en JSON; listo para usar como git submodule.",
+  "main": "index.js",
+  "keywords": [
+    "design-tokens",
+    "design-system",
+    "dodada",
+    "submodule",
+    "mobile-first",
+    "cross-platform",
+    "ios",
+    "android",
+    "kmp",
+    "web"
+  ],
+  "files": [
+    "tokens",
+    "assets",
+    "README.md"
+  ],
+  "author": "Dodada Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/dodada-tokens"
+  },
+  "scripts": {
+    "build": "node scripts/build-tokens.js",
+    "build:tokens": "node scripts/build-tokens.js",
+    "deploy": "node scripts/deploy-dist.js",
+    "build:deploy": "node scripts/build-tokens.js && node scripts/deploy-dist.js",
+    "clean": "node -e \"const fs=require('fs'); const p=require('path'); ['build','dist'].forEach(d=>{const r=p.join(process.cwd(),d); if(fs.existsSync(r)) fs.rmSync(r,{recursive:true}); console.log('Cleaned',d);});\""
+  },
+  "devDependencies": {
+    "style-dictionary": "^4.0.0",
+    "svg2vectordrawable": "^3.0.0"
+  },
+  "dependencies": {}
+}

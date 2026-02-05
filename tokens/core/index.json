@@ -1,0 +1,91 @@
+{
+  "$schema": "https://design-tokens.org/draft/json-schema.json",
+  "$description": "Dodada Design System - Core Tokens Index",
+  "version": "1.1.0",
+  "tokens": {
+    "font": {
+      "$description": "Font families and weights for Quicksand typeface",
+      "file": "./font.json",
+      "categories": [
+        "family (primary: Quicksand, system, monospace)",
+        "weight (light: 300, regular: 400, medium: 500, semibold: 600, bold: 700)",
+        "file (references to .ttf files)"
+      ]
+    },
+    "icons": {
+      "$description": "Icon assets catalog - 126 SVG icons organized by category",
+      "file": "./icons.json",
+      "categories": [
+        "navigation (home, search, profile, collections, menu, grid)",
+        "actions (add, edit, delete, check, close, share, etc.)",
+        "arrows (up, down, left, right, upRight)",
+        "chevrons (up, down, left, right variants)",
+        "feedback (alerts, info, notifications, help)",
+        "user (profile, settings, lock, eye)",
+        "communication (mail, phone, microphone, pen)",
+        "location (map, pin, navigation, directions, globe)",
+        "time (clock, calendar, agenda)",
+        "restaurant (food, fork, menu, cafe, chicken)",
+        "services (delivery, booking, wifi, parking)",
+        "payment (dollar, credit card, payment)",
+        "social (facebook, instagram, twitter, google, apple)",
+        "content (heart, like, star, award, gift, image, music)",
+        "business (building, work, fotocheck)",
+        "trending (up, down, topic, zap)",
+        "special (premium, promo, glow)",
+        "utility (filter, loader, more, circle)",
+        "legal (privacy, terms, support)"
+      ],
+      "total": "126 icons"
+    },
+    "color": {
+      "$description": "Color primitives including semantic palettes (primary, secondary, success, warning, error, info) and neutral scale",
+      "file": "./color.json",
+      "categories": [
+        "primary (100-900)",
+        "secondary (100-900)",
+        "success (100-900)",
+        "warning (100-900)",
+        "error (100-900)",
+        "info (100-900)",
+        "neutral (0-1000)",
+        "text (semantic references)",
+        "surface (semantic references)",
+        "border (semantic references)",
+        "button (semantic references)",
+        "feedback (semantic references)"
+      ]
+    },
+    "spacing": {
+      "$description": "Spacing scale for padding, margin, and gaps",
+      "file": "./spacing.json",
+      "scale": "0, 2xs(2px), xs(4px), sm(8px), md(12px), lg(16px), xl(24px), 2xl(32px), 3xl(40px), 4xl(48px), 5xl(64px)"
+    },
+    "radius": {
+      "$description": "Border radius values for components",
+      "file": "./radius.json",
+      "scale": "none(0), xs(2px), sm(4px), md(8px), lg(12px), xl(16px), 2xl(24px), 3xl(32px), full(9999px)"
+    },
+    "sizing": {
+      "$description": "Component dimensions including buttons, inputs, icons, touch targets, and containers",
+      "file": "./sizing.json",
+      "categories": [
+        "icon (xs-2xl)",
+        "button.height (sm-xl)",
+        "button.minWidth (sm-lg)",
+        "input.height (sm-xl)",
+        "touchTarget (min, comfortable, spacious)",
+        "container (xs-2xl)"
+      ]
+    },
+    "elevation": {
+      "$description": "Elevation system for shadows and z-index",
+      "file": "./elevation.json",
+      "categories": [
+        "level (0-4)",
+        "blur (none-xl)",
+        "offset.y (sm-xl)"
+      ]
+    }
+  }
+}

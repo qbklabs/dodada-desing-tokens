@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Rutas donde copiar dist/ al ejecutar npm run deploy. Copia este archivo a deploy-paths.json y ajusta las rutas a tus proyectos.",
+  "paths": {
+    "ios": "/Users/juniorquevedogutierrez/Documents/ios-projects/ios-Dodada/Sources/Dodada/Delivery/Foundations",
+    "android": "../mi-app-android/app/src/main/java/com/dodada/app/design/tokens",
+    "web": "../mi-app-web/src/tokens",
+    "css": "../mi-app-web/public/css"
+  }
+}

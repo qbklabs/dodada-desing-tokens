@@ -1,0 +1,60 @@
+{
+  "$schema": "https://design-tokens.org/draft/json-schema.json",
+  "spacing": {
+    "0": {
+      "$value": "0px",
+      "$type": "dimension",
+      "$description": "Zero spacing - used for no margin or padding"
+    },
+    "2xs": {
+      "$value": "2px",
+      "$type": "dimension",
+      "$description": "Extra extra small spacing - minimal separation"
+    },
+    "xs": {
+      "$value": "4px",
+      "$type": "dimension",
+      "$description": "Extra small spacing - tight elements"
+    },
+    "sm": {
+      "$value": "8px",
+      "$type": "dimension",
+      "$description": "Small spacing - compact layouts"
+    },
+    "md": {
+      "$value": "12px",
+      "$type": "dimension",
+      "$description": "Medium spacing - comfortable separation"
+    },
+    "lg": {
+      "$value": "16px",
+      "$type": "dimension",
+      "$description": "Large spacing - standard element separation"
+    },
+    "xl": {
+      "$value": "24px",
+      "$type": "dimension",
+      "$description": "Extra large spacing - section spacing"
+    },
+    "2xl": {
+      "$value": "32px",
+      "$type": "dimension",
+      "$description": "2x extra large - major section spacing"
+    },
+    "3xl": {
+      "$value": "40px",
+      "$type": "dimension",
+      "$description": "3x extra large - screen-level spacing"
+    },
+    "4xl": {
+      "$value": "48px",
+      "$type": "dimension",
+      "$description": "4x extra large - maximum spacing for dramatic separation"
+    },
+    "5xl": {
+      "$value": "64px",
+      "$type": "dimension",
+      "$description": "5x extra large - hero sections or special layouts"
+    }
+  }
+}

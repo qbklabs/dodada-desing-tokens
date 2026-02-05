@@ -1,0 +1,673 @@
+{
+  "$schema": "https://design-tokens.org/draft/json-schema.json",
+  "icon": {
+    "navigation": {
+      "home": {
+        "$value": "home.svg",
+        "$type": "asset",
+        "$description": "Home icon"
+      },
+      "home2": {
+        "$value": "home2.svg",
+        "$type": "asset",
+        "$description": "Home icon variant 2"
+      },
+      "home2Active": {
+        "$value": "home2-active.svg",
+        "$type": "asset",
+        "$description": "Home icon variant 2 active state"
+      },
+      "search": {
+        "$value": "search.svg",
+        "$type": "asset",
+        "$description": "Search icon"
+      },
+      "search2": {
+        "$value": "search2.svg",
+        "$type": "asset",
+        "$description": "Search icon variant 2"
+      },
+      "profile2": {
+        "$value": "profile2.svg",
+        "$type": "asset",
+        "$description": "Profile icon variant 2"
+      },
+      "profile2Active": {
+        "$value": "profile2-active.svg",
+        "$type": "asset",
+        "$description": "Profile icon variant 2 active state"
+      },
+      "collections": {
+        "$value": "collections.svg",
+        "$type": "asset",
+        "$description": "Collections icon"
+      },
+      "collections2": {
+        "$value": "collections2.svg",
+        "$type": "asset",
+        "$description": "Collections icon variant 2"
+      },
+      "collections2Active": {
+        "$value": "collections2-active.svg",
+        "$type": "asset",
+        "$description": "Collections icon variant 2 active state"
+      },
+      "menu": {
+        "$value": "list.svg",
+        "$type": "asset",
+        "$description": "Menu/List icon"
+      },
+      "grid": {
+        "$value": "grid.svg",
+        "$type": "asset",
+        "$description": "Grid view icon"
+      }
+    },
+    "actions": {
+      "add": {
+        "$value": "add.svg",
+        "$type": "asset",
+        "$description": "Add/Plus icon"
+      },
+      "plus": {
+        "$value": "plus.svg",
+        "$type": "asset",
+        "$description": "Plus icon"
+      },
+      "minus": {
+        "$value": "minus.svg",
+        "$type": "asset",
+        "$description": "Minus icon"
+      },
+      "edit": {
+        "$value": "edit-2.svg",
+        "$type": "asset",
+        "$description": "Edit icon"
+      },
+      "delete": {
+        "$value": "delete.svg",
+        "$type": "asset",
+        "$description": "Delete icon"
+      },
+      "trash": {
+        "$value": "trash-2.svg",
+        "$type": "asset",
+        "$description": "Trash/Delete icon"
+      },
+      "check": {
+        "$value": "check.svg",
+        "$type": "asset",
+        "$description": "Check/Checkmark icon"
+      },
+      "close": {
+        "$value": "x.svg",
+        "$type": "asset",
+        "$description": "Close/X icon"
+      },
+      "circleX": {
+        "$value": "Cirecle X.svg",
+        "$type": "asset",
+        "$description": "Circle with X icon"
+      },
+      "refresh": {
+        "$value": "refresh-ccw.svg",
+        "$type": "asset",
+        "$description": "Refresh icon"
+      },
+      "send": {
+        "$value": "send.svg",
+        "$type": "asset",
+        "$description": "Send icon"
+      },
+      "share": {
+        "$value": "share.svg",
+        "$type": "asset",
+        "$description": "Share icon"
+      },
+      "share2": {
+        "$value": "share-2.svg",
+        "$type": "asset",
+        "$description": "Share icon variant 2"
+      },
+      "download": {
+        "$value": "download.svg",
+        "$type": "asset",
+        "$description": "Download icon"
+      },
+      "upload": {
+        "$value": "upload.svg",
+        "$type": "asset",
+        "$description": "Upload icon"
+      },
+      "maximize": {
+        "$value": "maximize-2.svg",
+        "$type": "asset",
+        "$description": "Maximize icon"
+      },
+      "minimize": {
+        "$value": "minimize-2.svg",
+        "$type": "asset",
+        "$description": "Minimize icon"
+      },
+      "externalLink": {
+        "$value": "external-link.svg",
+        "$type": "asset",
+        "$description": "External link icon"
+      }
+    },
+    "arrows": {
+      "up": {
+        "$value": "arrow-up.svg",
+        "$type": "asset",
+        "$description": "Arrow pointing up"
+      },
+      "down": {
+        "$value": "arrow-down.svg",
+        "$type": "asset",
+        "$description": "Arrow pointing down"
+      },
+      "left": {
+        "$value": "arrow-left.svg",
+        "$type": "asset",
+        "$description": "Arrow pointing left"
+      },
+      "right": {
+        "$value": "arrow-right.svg",
+        "$type": "asset",
+        "$description": "Arrow pointing right"
+      },
+      "upRight": {
+        "$value": "arrow-up-right.svg",
+        "$type": "asset",
+        "$description": "Arrow pointing up-right"
+      }
+    },
+    "chevrons": {
+      "up": {
+        "$value": "chevron-up.svg",
+        "$type": "asset",
+        "$description": "Chevron pointing up"
+      },
+      "up1": {
+        "$value": "chevron-up-1.svg",
+        "$type": "asset",
+        "$description": "Chevron pointing up variant 1"
+      },
+      "down": {
+        "$value": "chevron-down.svg",
+        "$type": "asset",
+        "$description": "Chevron pointing down"
+      },
+      "down1": {
+        "$value": "chevron-down-1.svg",
+        "$type": "asset",
+        "$description": "Chevron pointing down variant 1"
+      },
+      "left": {
+        "$value": "chevron-left.svg",
+        "$type": "asset",
+        "$description": "Chevron pointing left"
+      },
+      "right": {
+        "$value": "chevron-right.svg",
+        "$type": "asset",
+        "$description": "Chevron pointing right"
+      }
+    },
+    "feedback": {
+      "alertCircle": {
+        "$value": "alert-circle.svg",
+        "$type": "asset",
+        "$description": "Alert circle icon"
+      },
+      "alertTriangle": {
+        "$value": "alert-triangle.svg",
+        "$type": "asset",
+        "$description": "Alert triangle/warning icon"
+      },
+      "info": {
+        "$value": "info.svg",
+        "$type": "asset",
+        "$description": "Info icon"
+      },
+      "helpCircle": {
+        "$value": "help-circle.svg",
+        "$type": "asset",
+        "$description": "Help/Question circle icon"
+      },
+      "lifeBuoy": {
+        "$value": "life-buoy.svg",
+        "$type": "asset",
+        "$description": "Life buoy/Support icon"
+      },
+      "bell": {
+        "$value": "bell.svg",
+        "$type": "asset",
+        "$description": "Bell/Notification icon"
+      },
+      "bell2": {
+        "$value": "bell2.svg",
+        "$type": "asset",
+        "$description": "Bell icon variant 2"
+      },
+      "smile": {
+        "$value": "smile.svg",
+        "$type": "asset",
+        "$description": "Smile/Happy icon"
+      }
+    },
+    "user": {
+      "user": {
+        "$value": "user.svg",
+        "$type": "asset",
+        "$description": "User/Profile icon"
+      },
+      "settings": {
+        "$value": "settings.svg",
+        "$type": "asset",
+        "$description": "Settings icon"
+      },
+      "lock": {
+        "$value": "lock.svg",
+        "$type": "asset",
+        "$description": "Lock/Security icon"
+      },
+      "unlock": {
+        "$value": "unlock.svg",
+        "$type": "asset",
+        "$description": "Unlock icon"
+      },
+      "eye": {
+        "$value": "eye.svg",
+        "$type": "asset",
+        "$description": "Eye/Visibility icon"
+      },
+      "eyeOff": {
+        "$value": "eye-off.svg",
+        "$type": "asset",
+        "$description": "Eye off/Hidden icon"
+      }
+    },
+    "communication": {
+      "mail": {
+        "$value": "mail.svg",
+        "$type": "asset",
+        "$description": "Mail/Email icon"
+      },
+      "phone": {
+        "$value": "phone.svg",
+        "$type": "asset",
+        "$description": "Phone icon"
+      },
+      "call": {
+        "$value": "call2.svg",
+        "$type": "asset",
+        "$description": "Call icon variant 2"
+      },
+      "microphone": {
+        "$value": "Microphone.svg",
+        "$type": "asset",
+        "$description": "Microphone icon"
+      },
+      "pen": {
+        "$value": "Pen.svg",
+        "$type": "asset",
+        "$description": "Pen/Write icon"
+      }
+    },
+    "location": {
+      "mapPin": {
+        "$value": "map-pin.svg",
+        "$type": "asset",
+        "$description": "Map pin/Location marker icon"
+      },
+      "map": {
+        "$value": "map.svg",
+        "$type": "asset",
+        "$description": "Map icon"
+      },
+      "map1": {
+        "$value": "map-1.svg",
+        "$type": "asset",
+        "$description": "Map icon variant 1"
+      },
+      "map2": {
+        "$value": "map2.svg",
+        "$type": "asset",
+        "$description": "Map icon variant 2"
+      },
+      "navigation": {
+        "$value": "navigation.svg",
+        "$type": "asset",
+        "$description": "Navigation/Compass icon"
+      },
+      "directions": {
+        "$value": "directions.svg",
+        "$type": "asset",
+        "$description": "Directions icon"
+      },
+      "locationFill": {
+        "$value": "location-fill.svg",
+        "$type": "asset",
+        "$description": "Location filled icon"
+      },
+      "globe": {
+        "$value": "globe.svg",
+        "$type": "asset",
+        "$description": "Globe/World icon"
+      }
+    },
+    "time": {
+      "clock": {
+        "$value": "clock.svg",
+        "$type": "asset",
+        "$description": "Clock/Time icon"
+      },
+      "calendar": {
+        "$value": "calendar.svg",
+        "$type": "asset",
+        "$description": "Calendar icon"
+      },
+      "agend": {
+        "$value": "agend.svg",
+        "$type": "asset",
+        "$description": "Agenda icon"
+      }
+    },
+    "restaurant": {
+      "restaurant": {
+        "$value": "restaurant.svg",
+        "$type": "asset",
+        "$description": "Restaurant icon"
+      },
+      "food": {
+        "$value": "food.svg",
+        "$type": "asset",
+        "$description": "Food icon"
+      },
+      "fork": {
+        "$value": "fork.svg",
+        "$type": "asset",
+        "$description": "Fork/Utensils icon"
+      },
+      "menuFood": {
+        "$value": "menu food.svg",
+        "$type": "asset",
+        "$description": "Menu food icon"
+      },
+      "cafe": {
+        "$value": "cafe.svg",
+        "$type": "asset",
+        "$description": "Cafe/Coffee icon"
+      },
+      "chicken": {
+        "$value": "Chicken.svg",
+        "$type": "asset",
+        "$description": "Chicken icon"
+      },
+      "anticucho": {
+        "$value": "anticucho.svg",
+        "$type": "asset",
+        "$description": "Anticucho icon"
+      }
+    },
+    "services": {
+      "delivery": {
+        "$value": "Delivery.svg",
+        "$type": "asset",
+        "$description": "Delivery icon"
+      },
+      "booking": {
+        "$value": "booking.svg",
+        "$type": "asset",
+        "$description": "Booking icon"
+      },
+      "booking2": {
+        "$value": "booking2.svg",
+        "$type": "asset",
+        "$description": "Booking icon variant 2"
+      },
+      "eatInRestaurant": {
+        "$value": "eat in restaurant.svg",
+        "$type": "asset",
+        "$description": "Eat in restaurant icon"
+      },
+      "happyHour": {
+        "$value": "happy hour.svg",
+        "$type": "asset",
+        "$description": "Happy hour icon"
+      },
+      "terrace": {
+        "$value": "terrace.svg",
+        "$type": "asset",
+        "$description": "Terrace seating icon"
+      },
+      "kidsPlay": {
+        "$value": "kids play.svg",
+        "$type": "asset",
+        "$description": "Kids play area icon"
+      },
+      "wifi": {
+        "$value": "wifi.svg",
+        "$type": "asset",
+        "$description": "WiFi icon"
+      },
+      "estacionamiento": {
+        "$value": "estacionamiento.svg",
+        "$type": "asset",
+        "$description": "Parking icon"
+      }
+    },
+    "payment": {
+      "dollarSign": {
+        "$value": "dollar-sign.svg",
+        "$type": "asset",
+        "$description": "Dollar sign icon"
+      },
+      "creditCard": {
+        "$value": "credit card.svg",
+        "$type": "asset",
+        "$description": "Credit card icon"
+      },
+      "payment": {
+        "$value": "payment.svg",
+        "$type": "asset",
+        "$description": "Payment icon"
+      }
+    },
+    "social": {
+      "facebook": {
+        "$value": "facebook.svg",
+        "$type": "asset",
+        "$description": "Facebook icon"
+      },
+      "instagram": {
+        "$value": "Instagram.svg",
+        "$type": "asset",
+        "$description": "Instagram icon"
+      },
+      "twitter": {
+        "$value": "twitter.svg",
+        "$type": "asset",
+        "$description": "Twitter icon"
+      },
+      "google": {
+        "$value": "google.svg",
+        "$type": "asset",
+        "$description": "Google icon"
+      },
+      "apple": {
+        "$value": "Apple.svg",
+        "$type": "asset",
+        "$description": "Apple icon"
+      }
+    },
+    "content": {
+      "heart": {
+        "$value": "heart.svg",
+        "$type": "asset",
+        "$description": "Heart/Like filled icon"
+      },
+      "heartOutline": {
+        "$value": "heart-outline.svg",
+        "$type": "asset",
+        "$description": "Heart outline icon"
+      },
+      "like": {
+        "$value": "like.svg",
+        "$type": "asset",
+        "$description": "Like/Thumbs up icon"
+      },
+      "star": {
+        "$value": "star.svg",
+        "$type": "asset",
+        "$description": "Star/Rating icon"
+      },
+      "award": {
+        "$value": "award.svg",
+        "$type": "asset",
+        "$description": "Award icon"
+      },
+      "award2": {
+        "$value": "award 2.svg",
+        "$type": "asset",
+        "$description": "Award icon variant 2"
+      },
+      "gift": {
+        "$value": "gift.svg",
+        "$type": "asset",
+        "$description": "Gift icon"
+      },
+      "image": {
+        "$value": "image.svg",
+        "$type": "asset",
+        "$description": "Image/Photo icon"
+      },
+      "music": {
+        "$value": "music.svg",
+        "$type": "asset",
+        "$description": "Music icon"
+      }
+    },
+    "business": {
+      "building": {
+        "$value": "Building.svg",
+        "$type": "asset",
+        "$description": "Building/Office icon"
+      },
+      "work": {
+        "$value": "Work.svg",
+        "$type": "asset",
+        "$description": "Work/Briefcase icon"
+      },
+      "fotocheck": {
+        "$value": "fotocheck.svg",
+        "$type": "asset",
+        "$description": "ID/Badge icon"
+      }
+    },
+    "trending": {
+      "trendingUp": {
+        "$value": "trending-up.svg",
+        "$type": "asset",
+        "$description": "Trending up icon"
+      },
+      "trendingDown": {
+        "$value": "trending-down.svg",
+        "$type": "asset",
+        "$description": "Trending down icon"
+      },
+      "trendingTopic": {
+        "$value": "trending topic.svg",
+        "$type": "asset",
+        "$description": "Trending topic icon"
+      },
+      "zap": {
+        "$value": "zap.svg",
+        "$type": "asset",
+        "$description": "Zap/Lightning/Energy icon"
+      }
+    },
+    "special": {
+      "premium": {
+        "$value": "premium.svg",
+        "$type": "asset",
+        "$description": "Premium icon"
+      },
+      "promo": {
+        "$value": "promo.svg",
+        "$type": "asset",
+        "$description": "Promo/Discount icon"
+      },
+      "glow": {
+        "$value": "glow.svg",
+        "$type": "asset",
+        "$description": "Glow/Highlight icon"
+      },
+      "aquisito": {
+        "$value": "Aquisito.svg",
+        "$type": "asset",
+        "$description": "Aquisito brand icon"
+      }
+    },
+    "utility": {
+      "filter": {
+        "$value": "filter.svg",
+        "$type": "asset",
+        "$description": "Filter icon"
+      },
+      "filters2": {
+        "$value": "filters2.svg",
+        "$type": "asset",
+        "$description": "Filters icon variant 2"
+      },
+      "loader": {
+        "$value": "loader.svg",
+        "$type": "asset",
+        "$description": "Loader/Spinner icon"
+      },
+      "moreHorizontal": {
+        "$value": "more-horizontal.svg",
+        "$type": "asset",
+        "$description": "More options horizontal icon"
+      },
+      "moreVertical": {
+        "$value": "more-vertical.svg",
+        "$type": "asset",
+        "$description": "More options vertical icon"
+      },
+      "slash": {
+        "$value": "slash.svg",
+        "$type": "asset",
+        "$description": "Slash/Disabled icon"
+      },
+      "circle": {
+        "$value": "circle.svg",
+        "$type": "asset",
+        "$description": "Circle icon"
+      },
+      "base": {
+        "$value": "base.svg",
+        "$type": "asset",
+        "$description": "Base icon"
+      }
+    },
+    "legal": {
+      "privacy": {
+        "$value": "Privacy.svg",
+        "$type": "asset",
+        "$description": "Privacy icon"
+      },
+      "terms": {
+        "$value": "terms.svg",
+        "$type": "asset",
+        "$description": "Terms & Conditions icon"
+      },
+      "support": {
+        "$value": "Support.svg",
+        "$type": "asset",
+        "$description": "Support icon"
+      }
+    }
+  }
+}

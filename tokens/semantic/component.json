@@ -1,0 +1,417 @@
+{
+  "$schema": "https://design-tokens.org/draft/json-schema.json",
+  "component": {
+    "button": {
+      "height": {
+        "sm": {
+          "$value": "{sizing.button.height.sm}",
+          "$type": "dimension",
+          "$description": "Small button height"
+        },
+        "md": {
+          "$value": "{sizing.button.height.md}",
+          "$type": "dimension",
+          "$description": "Medium button height (default)"
+        },
+        "lg": {
+          "$value": "{sizing.button.height.lg}",
+          "$type": "dimension",
+          "$description": "Large button height"
+        },
+        "xl": {
+          "$value": "{sizing.button.height.xl}",
+          "$type": "dimension",
+          "$description": "Extra large button height"
+        }
+      },
+      "padding": {
+        "horizontal": {
+          "sm": {
+            "$value": "{spacing.md}",
+            "$type": "dimension",
+            "$description": "Small button horizontal padding"
+          },
+          "md": {
+            "$value": "{spacing.lg}",
+            "$type": "dimension",
+            "$description": "Medium button horizontal padding"
+          },
+          "lg": {
+            "$value": "{spacing.xl}",
+            "$type": "dimension",
+            "$description": "Large button horizontal padding"
+          }
+        },
+        "vertical": {
+          "sm": {
+            "$value": "{spacing.sm}",
+            "$type": "dimension",
+            "$description": "Small button vertical padding"
+          },
+          "md": {
+            "$value": "{spacing.md}",
+            "$type": "dimension",
+            "$description": "Medium button vertical padding"
+          },
+          "lg": {
+            "$value": "{spacing.lg}",
+            "$type": "dimension",
+            "$description": "Large button vertical padding"
+          }
+        }
+      },
+      "radius": {
+        "sm": {
+          "$value": "{radius.sm}",
+          "$type": "dimension",
+          "$description": "Small button border radius"
+        },
+        "md": {
+          "$value": "{radius.md}",
+          "$type": "dimension",
+          "$description": "Medium button border radius (default)"
+        },
+        "lg": {
+          "$value": "{radius.lg}",
+          "$type": "dimension",
+          "$description": "Large button border radius"
+        },
+        "full": {
+          "$value": "{radius.full}",
+          "$type": "dimension",
+          "$description": "Full button border radius (pill shape)"
+        }
+      },
+      "gap": {
+        "$value": "{spacing.sm}",
+        "$type": "dimension",
+        "$description": "Gap between icon and text in button"
+      },
+      "minWidth": {
+        "sm": {
+          "$value": "{sizing.button.minWidth.sm}",
+          "$type": "dimension",
+          "$description": "Minimum width for small buttons"
+        },
+        "md": {
+          "$value": "{sizing.button.minWidth.md}",
+          "$type": "dimension",
+          "$description": "Minimum width for medium buttons"
+        },
+        "lg": {
+          "$value": "{sizing.button.minWidth.lg}",
+          "$type": "dimension",
+          "$description": "Minimum width for large buttons"
+        }
+      }
+    },
+    "card": {
+      "padding": {
+        "sm": {
+          "$value": "{spacing.md}",
+          "$type": "dimension",
+          "$description": "Small card padding"
+        },
+        "md": {
+          "$value": "{spacing.lg}",
+          "$type": "dimension",
+          "$description": "Medium card padding (default)"
+        },
+        "lg": {
+          "$value": "{spacing.xl}",
+          "$type": "dimension",
+          "$description": "Large card padding"
+        }
+      },
+      "radius": {
+        "sm": {
+          "$value": "{radius.sm}",
+          "$type": "dimension",
+          "$description": "Small card border radius"
+        },
+        "md": {
+          "$value": "{radius.md}",
+          "$type": "dimension",
+          "$description": "Medium card border radius (default)"
+        },
+        "lg": {
+          "$value": "{radius.lg}",
+          "$type": "dimension",
+          "$description": "Large card border radius"
+        },
+        "xl": {
+          "$value": "{radius.xl}",
+          "$type": "dimension",
+          "$description": "Extra large card border radius"
+        }
+      },
+      "gap": {
+        "sm": {
+          "$value": "{spacing.sm}",
+          "$type": "dimension",
+          "$description": "Small gap between card elements"
+        },
+        "md": {
+          "$value": "{spacing.md}",
+          "$type": "dimension",
+          "$description": "Medium gap between card elements"
+        },
+        "lg": {
+          "$value": "{spacing.lg}",
+          "$type": "dimension",
+          "$description": "Large gap between card elements"
+        }
+      },
+      "elevation": {
+        "$value": "{elevation.level.1}",
+        "$type": "number",
+        "$description": "Default card elevation level"
+      }
+    },
+    "input": {
+      "height": {
+        "sm": {
+          "$value": "{sizing.input.height.sm}",
+          "$type": "dimension",
+          "$description": "Small input height"
+        },
+        "md": {
+          "$value": "{sizing.input.height.md}",
+          "$type": "dimension",
+          "$description": "Medium input height (default)"
+        },
+        "lg": {
+          "$value": "{sizing.input.height.lg}",
+          "$type": "dimension",
+          "$description": "Large input height"
+        },
+        "xl": {
+          "$value": "{sizing.input.height.xl}",
+          "$type": "dimension",
+          "$description": "Extra large input height"
+        }
+      },
+      "padding": {
+        "horizontal": {
+          "sm": {
+            "$value": "{spacing.sm}",
+            "$type": "dimension",
+            "$description": "Small input horizontal padding"
+          },
+          "md": {
+            "$value": "{spacing.md}",
+            "$type": "dimension",
+            "$description": "Medium input horizontal padding"
+          },
+          "lg": {
+            "$value": "{spacing.lg}",
+            "$type": "dimension",
+            "$description": "Large input horizontal padding"
+          }
+        }
+      },
+      "radius": {
+        "sm": {
+          "$value": "{radius.sm}",
+          "$type": "dimension",
+          "$description": "Small input border radius"
+        },
+        "md": {
+          "$value": "{radius.md}",
+          "$type": "dimension",
+          "$description": "Medium input border radius (default)"
+        },
+        "lg": {
+          "$value": "{radius.lg}",
+          "$type": "dimension",
+          "$description": "Large input border radius"
+        }
+      },
+      "gap": {
+        "$value": "{spacing.sm}",
+        "$type": "dimension",
+        "$description": "Gap between label and input field"
+      }
+    },
+    "chip": {
+      "height": {
+        "sm": {
+          "$value": "24px",
+          "$type": "dimension",
+          "$description": "Small chip height"
+        },
+        "md": {
+          "$value": "32px",
+          "$type": "dimension",
+          "$description": "Medium chip height"
+        }
+      },
+      "padding": {
+        "horizontal": {
+          "sm": {
+            "$value": "{spacing.sm}",
+            "$type": "dimension",
+            "$description": "Small chip horizontal padding"
+          },
+          "md": {
+            "$value": "{spacing.md}",
+            "$type": "dimension",
+            "$description": "Medium chip horizontal padding"
+          }
+        }
+      },
+      "radius": {
+        "$value": "{radius.full}",
+        "$type": "dimension",
+        "$description": "Chip border radius (always pill-shaped)"
+      },
+      "gap": {
+        "$value": "{spacing.xs}",
+        "$type": "dimension",
+        "$description": "Gap between icon and text in chip"
+      }
+    },
+    "avatar": {
+      "size": {
+        "xs": {
+          "$value": "24px",
+          "$type": "dimension",
+          "$description": "Extra small avatar size"
+        },
+        "sm": {
+          "$value": "32px",
+          "$type": "dimension",
+          "$description": "Small avatar size"
+        },
+        "md": {
+          "$value": "40px",
+          "$type": "dimension",
+          "$description": "Medium avatar size"
+        },
+        "lg": {
+          "$value": "48px",
+          "$type": "dimension",
+          "$description": "Large avatar size"
+        },
+        "xl": {
+          "$value": "64px",
+          "$type": "dimension",
+          "$description": "Extra large avatar size"
+        },
+        "2xl": {
+          "$value": "96px",
+          "$type": "dimension",
+          "$description": "2x extra large avatar size"
+        }
+      },
+      "radius": {
+        "$value": "{radius.full}",
+        "$type": "dimension",
+        "$description": "Avatar border radius (circular)"
+      }
+    },
+    "modal": {
+      "padding": {
+        "sm": {
+          "$value": "{spacing.lg}",
+          "$type": "dimension",
+          "$description": "Small modal padding"
+        },
+        "md": {
+          "$value": "{spacing.xl}",
+          "$type": "dimension",
+          "$description": "Medium modal padding"
+        },
+        "lg": {
+          "$value": "{spacing.2xl}",
+          "$type": "dimension",
+          "$description": "Large modal padding"
+        }
+      },
+      "radius": {
+        "sm": {
+          "$value": "{radius.md}",
+          "$type": "dimension",
+          "$description": "Small modal border radius"
+        },
+        "md": {
+          "$value": "{radius.lg}",
+          "$type": "dimension",
+          "$description": "Medium modal border radius"
+        },
+        "lg": {
+          "$value": "{radius.xl}",
+          "$type": "dimension",
+          "$description": "Large modal border radius"
+        }
+      },
+      "elevation": {
+        "$value": "{elevation.level.3}",
+        "$type": "number",
+        "$description": "Modal elevation level"
+      }
+    },
+    "divider": {
+      "thickness": {
+        "thin": {
+          "$value": "1px",
+          "$type": "dimension",
+          "$description": "Thin divider thickness"
+        },
+        "medium": {
+          "$value": "2px",
+          "$type": "dimension",
+          "$description": "Medium divider thickness"
+        },
+        "thick": {
+          "$value": "4px",
+          "$type": "dimension",
+          "$description": "Thick divider thickness"
+        }
+      },
+      "spacing": {
+        "$value": "{spacing.md}",
+        "$type": "dimension",
+        "$description": "Spacing around divider"
+      }
+    },
+    "list": {
+      "item": {
+        "height": {
+          "sm": {
+            "$value": "40px",
+            "$type": "dimension",
+            "$description": "Small list item height"
+          },
+          "md": {
+            "$value": "48px",
+            "$type": "dimension",
+            "$description": "Medium list item height"
+          },
+          "lg": {
+            "$value": "56px",
+            "$type": "dimension",
+            "$description": "Large list item height"
+          },
+          "xl": {
+            "$value": "64px",
+            "$type": "dimension",
+            "$description": "Extra large list item height"
+          }
+        },
+        "padding": {
+          "horizontal": {
+            "$value": "{spacing.lg}",
+            "$type": "dimension",
+            "$description": "List item horizontal padding"
+          }
+        },
+        "gap": {
+          "$value": "{spacing.md}",
+          "$type": "dimension",
+          "$description": "Gap between list item content"
+        }
+      }
+    }
+  }
+}

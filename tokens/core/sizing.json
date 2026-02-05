@@ -1,0 +1,151 @@
+{
+  "$schema": "https://design-tokens.org/draft/json-schema.json",
+  "sizing": {
+    "icon": {
+      "xs": {
+        "$value": "12px",
+        "$type": "dimension",
+        "$description": "Extra small icon container - inline text icons"
+      },
+      "sm": {
+        "$value": "16px",
+        "$type": "dimension",
+        "$description": "Small icon container - compact UI elements"
+      },
+      "md": {
+        "$value": "24px",
+        "$type": "dimension",
+        "$description": "Medium icon container - standard UI icons"
+      },
+      "lg": {
+        "$value": "32px",
+        "$type": "dimension",
+        "$description": "Large icon container - prominent icons"
+      },
+      "xl": {
+        "$value": "48px",
+        "$type": "dimension",
+        "$description": "Extra large icon container - feature icons"
+      },
+      "2xl": {
+        "$value": "64px",
+        "$type": "dimension",
+        "$description": "2x extra large icon container - hero icons"
+      }
+    },
+    "button": {
+      "height": {
+        "sm": {
+          "$value": "32px",
+          "$type": "dimension",
+          "$description": "Small button height - compact actions"
+        },
+        "md": {
+          "$value": "40px",
+          "$type": "dimension",
+          "$description": "Medium button height - standard actions"
+        },
+        "lg": {
+          "$value": "48px",
+          "$type": "dimension",
+          "$description": "Large button height - prominent CTAs"
+        },
+        "xl": {
+          "$value": "56px",
+          "$type": "dimension",
+          "$description": "Extra large button height - hero CTAs"
+        }
+      },
+      "minWidth": {
+        "sm": {
+          "$value": "64px",
+          "$type": "dimension",
+          "$description": "Minimum width for small buttons"
+        },
+        "md": {
+          "$value": "80px",
+          "$type": "dimension",
+          "$description": "Minimum width for medium buttons"
+        },
+        "lg": {
+          "$value": "120px",
+          "$type": "dimension",
+          "$description": "Minimum width for large buttons"
+        }
+      }
+    },
+    "input": {
+      "height": {
+        "sm": {
+          "$value": "32px",
+          "$type": "dimension",
+          "$description": "Small input height - compact forms"
+        },
+        "md": {
+          "$value": "40px",
+          "$type": "dimension",
+          "$description": "Medium input height - standard forms"
+        },
+        "lg": {
+          "$value": "48px",
+          "$type": "dimension",
+          "$description": "Large input height - prominent forms"
+        },
+        "xl": {
+          "$value": "56px",
+          "$type": "dimension",
+          "$description": "Extra large input height - hero forms"
+        }
+      }
+    },
+    "touchTarget": {
+      "min": {
+        "$value": "44px",
+        "$type": "dimension",
+        "$description": "Minimum touch target size - WCAG and platform guidelines"
+      },
+      "comfortable": {
+        "$value": "48px",
+        "$type": "dimension",
+        "$description": "Comfortable touch target - recommended for most interactive elements"
+      },
+      "spacious": {
+        "$value": "56px",
+        "$type": "dimension",
+        "$description": "Spacious touch target - primary actions"
+      }
+    },
+    "container": {
+      "xs": {
+        "$value": "320px",
+        "$type": "dimension",
+        "$description": "Extra small container - mobile portrait"
+      },
+      "sm": {
+        "$value": "480px",
+        "$type": "dimension",
+        "$description": "Small container - mobile landscape"
+      },
+      "md": {
+        "$value": "768px",
+        "$type": "dimension",
+        "$description": "Medium container - tablets"
+      },
+      "lg": {
+        "$value": "1024px",
+        "$type": "dimension",
+        "$description": "Large container - desktop"
+      },
+      "xl": {
+        "$value": "1280px",
+        "$type": "dimension",
+        "$description": "Extra large container - wide desktop"
+      },
+      "2xl": {
+        "$value": "1536px",
+        "$type": "dimension",
+        "$description": "2x extra large container - ultra-wide"
+      }
+    }
+  }
+}

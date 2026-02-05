@@ -1,0 +1,50 @@
+{
+  "$schema": "https://design-tokens.org/draft/json-schema.json",
+  "radius": {
+    "none": {
+      "$value": "0px",
+      "$type": "dimension",
+      "$description": "No border radius - sharp corners"
+    },
+    "xs": {
+      "$value": "2px",
+      "$type": "dimension",
+      "$description": "Extra small radius - subtle rounding"
+    },
+    "sm": {
+      "$value": "4px",
+      "$type": "dimension",
+      "$description": "Small radius - buttons, chips, minor elements"
+    },
+    "md": {
+      "$value": "8px",
+      "$type": "dimension",
+      "$description": "Medium radius - cards, inputs, standard components"
+    },
+    "lg": {
+      "$value": "12px",
+      "$type": "dimension",
+      "$description": "Large radius - prominent cards, modals"
+    },
+    "xl": {
+      "$value": "16px",
+      "$type": "dimension",
+      "$description": "Extra large radius - hero cards, featured content"
+    },
+    "2xl": {
+      "$value": "24px",
+      "$type": "dimension",
+      "$description": "2x extra large - dramatic rounding"
+    },
+    "3xl": {
+      "$value": "32px",
+      "$type": "dimension",
+      "$description": "3x extra large - maximum rounding"
+    },
+    "full": {
+      "$value": "9999px",
+      "$type": "dimension",
+      "$description": "Full radius - circular elements (avatars, pills)"
+    }
+  }
+}

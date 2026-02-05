@@ -1,0 +1,76 @@
+{
+  "$schema": "https://design-tokens.org/draft/json-schema.json",
+  "font": {
+    "family": {
+      "primary": {
+        "$value": "Quicksand",
+        "$type": "fontFamily",
+        "$description": "Primary font family - Quicksand for all text"
+      },
+      "system": {
+        "$value": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif",
+        "$type": "fontFamily",
+        "$description": "System font fallback"
+      },
+      "monospace": {
+        "$value": "'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Fira Mono', monospace",
+        "$type": "fontFamily",
+        "$description": "Monospace font for code"
+      }
+    },
+    "weight": {
+      "light": {
+        "$value": 300,
+        "$type": "fontWeight",
+        "$description": "Light weight - Quicksand Light"
+      },
+      "regular": {
+        "$value": 400,
+        "$type": "fontWeight",
+        "$description": "Regular weight - Quicksand Regular (default)"
+      },
+      "medium": {
+        "$value": 500,
+        "$type": "fontWeight",
+        "$description": "Medium weight - Quicksand Medium"
+      },
+      "semibold": {
+        "$value": 600,
+        "$type": "fontWeight",
+        "$description": "Semibold weight - Quicksand SemiBold"
+      },
+      "bold": {
+        "$value": 700,
+        "$type": "fontWeight",
+        "$description": "Bold weight - Quicksand Bold"
+      }
+    },
+    "file": {
+      "light": {
+        "$value": "Quicksand-Light.ttf",
+        "$type": "asset",
+        "$description": "Quicksand Light font file"
+      },
+      "regular": {
+        "$value": "Quicksand-Regular.ttf",
+        "$type": "asset",
+        "$description": "Quicksand Regular font file"
+      },
+      "medium": {
+        "$value": "Quicksand-Medium.ttf",
+        "$type": "asset",
+        "$description": "Quicksand Medium font file"
+      },
+      "semibold": {
+        "$value": "Quicksand-SemiBold.ttf",
+        "$type": "asset",
+        "$description": "Quicksand SemiBold font file"
+      },
+      "bold": {
+        "$value": "Quicksand-Bold.ttf",
+        "$type": "asset",
+        "$description": "Quicksand Bold font file"
+      }
+    }
+  }
+}

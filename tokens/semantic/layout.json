@@ -1,0 +1,154 @@
+{
+  "$schema": "https://design-tokens.org/draft/json-schema.json",
+  "layout": {
+    "screen": {
+      "padding": {
+        "horizontal": {
+          "$value": "{spacing.lg}",
+          "$type": "dimension",
+          "$description": "Standard horizontal padding for screen content"
+        },
+        "vertical": {
+          "$value": "{spacing.xl}",
+          "$type": "dimension",
+          "$description": "Standard vertical padding for screen content"
+        },
+        "compact": {
+          "horizontal": {
+            "$value": "{spacing.md}",
+            "$type": "dimension",
+            "$description": "Compact horizontal padding for tight screens"
+          },
+          "vertical": {
+            "$value": "{spacing.lg}",
+            "$type": "dimension",
+            "$description": "Compact vertical padding for tight screens"
+          }
+        },
+        "comfortable": {
+          "horizontal": {
+            "$value": "{spacing.xl}",
+            "$type": "dimension",
+            "$description": "Comfortable horizontal padding for spacious layouts"
+          },
+          "vertical": {
+            "$value": "{spacing.2xl}",
+            "$type": "dimension",
+            "$description": "Comfortable vertical padding for spacious layouts"
+          }
+        }
+      }
+    },
+    "section": {
+      "spacing": {
+        "sm": {
+          "$value": "{spacing.xl}",
+          "$type": "dimension",
+          "$description": "Small spacing between sections"
+        },
+        "md": {
+          "$value": "{spacing.2xl}",
+          "$type": "dimension",
+          "$description": "Medium spacing between sections"
+        },
+        "lg": {
+          "$value": "{spacing.3xl}",
+          "$type": "dimension",
+          "$description": "Large spacing between sections"
+        },
+        "xl": {
+          "$value": "{spacing.4xl}",
+          "$type": "dimension",
+          "$description": "Extra large spacing between major sections"
+        }
+      },
+      "gap": {
+        "sm": {
+          "$value": "{spacing.sm}",
+          "$type": "dimension",
+          "$description": "Small gap between section items"
+        },
+        "md": {
+          "$value": "{spacing.md}",
+          "$type": "dimension",
+          "$description": "Medium gap between section items"
+        },
+        "lg": {
+          "$value": "{spacing.lg}",
+          "$type": "dimension",
+          "$description": "Large gap between section items"
+        }
+      }
+    },
+    "grid": {
+      "gap": {
+        "xs": {
+          "$value": "{spacing.xs}",
+          "$type": "dimension",
+          "$description": "Extra small grid gap - dense grids"
+        },
+        "sm": {
+          "$value": "{spacing.sm}",
+          "$type": "dimension",
+          "$description": "Small grid gap - compact grids"
+        },
+        "md": {
+          "$value": "{spacing.md}",
+          "$type": "dimension",
+          "$description": "Medium grid gap - standard grids"
+        },
+        "lg": {
+          "$value": "{spacing.lg}",
+          "$type": "dimension",
+          "$description": "Large grid gap - spacious grids"
+        },
+        "xl": {
+          "$value": "{spacing.xl}",
+          "$type": "dimension",
+          "$description": "Extra large grid gap - dramatic separation"
+        }
+      },
+      "columns": {
+        "mobile": {
+          "$value": 4,
+          "$type": "number",
+          "$description": "Number of columns in mobile grid"
+        },
+        "tablet": {
+          "$value": 8,
+          "$type": "number",
+          "$description": "Number of columns in tablet grid"
+        },
+        "desktop": {
+          "$value": 12,
+          "$type": "number",
+          "$description": "Number of columns in desktop grid"
+        }
+      }
+    },
+    "stack": {
+      "spacing": {
+        "xs": {
+          "$value": "{spacing.xs}",
+          "$type": "dimension",
+          "$description": "Extra small vertical stack spacing"
+        },
+        "sm": {
+          "$value": "{spacing.sm}",
+          "$type": "dimension",
+          "$description": "Small vertical stack spacing"
+        },
+        "md": {
+          "$value": "{spacing.md}",
+          "$type": "dimension",
+          "$description": "Medium vertical stack spacing"
+        },
+        "lg": {
+          "$value": "{spacing.lg}",
+          "$type": "dimension",
+          "$description": "Large vertical stack spacing"
+        }
+      }
+    }
+  }
+}

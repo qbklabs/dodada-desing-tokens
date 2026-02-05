@@ -1,0 +1,65 @@
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+bun.lock
+
+# Build / output (generated from tokens; not part of source)
+dist/
+build/
+out/
+*.generated.*
+.output/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+*.sublime-*
+
+# OS
+.DS_Store
+.DS_Store?
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Logs & debug
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.tsbuildinfo
+
+# Temporary
+tmp/
+temp/
+*.tmp
+*.temp
+.cache/
+
+# Environment & secrets (never commit)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.secret*
+
+# Deploy paths (local; copy from deploy-paths.example.json)
+deploy-paths.json
+
+# Test / coverage (optional; uncomment if you add tests)
+# coverage/
+# .nyc_output/
+# *.lcov
+
+# Optional: local overrides (if you add a script that writes here)
+# tokens.local/
+# .tokens-cache/
