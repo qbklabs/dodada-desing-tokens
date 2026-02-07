@@ -501,80 +501,309 @@
           "default": {
             "$value": "{color.primary.500}",
             "$type": "color",
-            "$description": "Primary button background - default state"
+            "$description": "Primary button background - default"
           },
           "hover": {
-            "$value": "{color.primary.600}",
-            "$type": "color",
-            "$description": "Primary button background - hover state"
-          },
-          "pressed": {
             "$value": "{color.primary.700}",
             "$type": "color",
-            "$description": "Primary button background - pressed/active state"
+            "$description": "Primary button background - hover"
+          },
+          "pressed": {
+            "$value": "{color.primary.400}",
+            "$type": "color",
+            "$description": "Primary button background - pressed"
           },
           "disabled": {
-            "$value": "{color.neutral.300}",
+            "$value": "{color.secondary.100}",
             "$type": "color",
-            "$description": "Primary button background - disabled state"
+            "$description": "Primary button background - disabled"
           }
         },
         "text": {
-          "$value": "{color.neutral.0}",
-          "$type": "color",
-          "$description": "Primary button text color"
+          "default": {
+            "$value": "{color.neutral.0}",
+            "$type": "color",
+            "$description": "Primary button text - default (white)"
+          },
+          "hover": {
+            "$value": "{color.neutral.0}",
+            "$type": "color",
+            "$description": "Primary button text - hover (white)"
+          },
+          "pressed": {
+            "$value": "{color.neutral.0}",
+            "$type": "color",
+            "$description": "Primary button text - pressed (white)"
+          },
+          "disabled": {
+            "$value": "{color.secondary.400}",
+            "$type": "color",
+            "$description": "Primary button text - disabled"
+          }
+        },
+        "icon": {
+          "default": {
+            "$value": "{color.neutral.0}",
+            "$type": "color",
+            "$description": "Primary button icon - default (white)"
+          },
+          "hover": {
+            "$value": "{color.neutral.0}",
+            "$type": "color",
+            "$description": "Primary button icon - hover (white)"
+          },
+          "pressed": {
+            "$value": "{color.neutral.0}",
+            "$type": "color",
+            "$description": "Primary button icon - pressed (white)"
+          },
+          "disabled": {
+            "$value": "{color.secondary.400}",
+            "$type": "color",
+            "$description": "Primary button icon - disabled"
+          }
         },
         "border": {
           "$value": "transparent",
           "$type": "color",
-          "$description": "Primary button border color"
+          "$description": "Primary button border (transparent)"
         }
       },
       "secondary": {
         "background": {
           "default": {
-            "$value": "transparent",
+            "$value": "{color.neutral.0}",
             "$type": "color",
-            "$description": "Secondary button background - default state"
+            "$description": "Secondary button background - default (white)"
           },
           "hover": {
-            "$value": "{color.neutral.100}",
+            "$value": "{color.neutral.0}",
             "$type": "color",
-            "$description": "Secondary button background - hover state"
+            "$description": "Secondary button background - hover (white)"
           },
           "pressed": {
-            "$value": "{color.neutral.200}",
+            "$value": "{color.neutral.0}",
             "$type": "color",
-            "$description": "Secondary button background - pressed state"
+            "$description": "Secondary button background - pressed (white)"
           },
           "disabled": {
-            "$value": "transparent",
+            "$value": "{color.secondary.100}",
             "$type": "color",
-            "$description": "Secondary button background - disabled state"
+            "$description": "Secondary button background - disabled"
           }
         },
         "text": {
-          "$value": "{color.primary.500}",
-          "$type": "color",
-          "$description": "Secondary button text color"
+          "default": {
+            "$value": "{color.primary.500}",
+            "$type": "color",
+            "$description": "Secondary button text - default"
+          },
+          "hover": {
+            "$value": "{color.primary.700}",
+            "$type": "color",
+            "$description": "Secondary button text - hover"
+          },
+          "pressed": {
+            "$value": "{color.primary.400}",
+            "$type": "color",
+            "$description": "Secondary button text - pressed"
+          },
+          "disabled": {
+            "$value": "{color.secondary.400}",
+            "$type": "color",
+            "$description": "Secondary button text - disabled"
+          }
+        },
+        "icon": {
+          "default": {
+            "$value": "{color.primary.500}",
+            "$type": "color",
+            "$description": "Secondary button icon - default"
+          },
+          "hover": {
+            "$value": "{color.primary.700}",
+            "$type": "color",
+            "$description": "Secondary button icon - hover"
+          },
+          "pressed": {
+            "$value": "{color.primary.400}",
+            "$type": "color",
+            "$description": "Secondary button icon - pressed"
+          },
+          "disabled": {
+            "$value": "{color.secondary.400}",
+            "$type": "color",
+            "$description": "Secondary button icon - disabled"
+          }
         },
         "border": {
           "default": {
             "$value": "{color.primary.500}",
             "$type": "color",
-            "$description": "Secondary button border - default state"
+            "$description": "Secondary button border - default"
           },
           "hover": {
-            "$value": "{color.primary.600}",
+            "$value": "{color.primary.700}",
             "$type": "color",
-            "$description": "Secondary button border - hover state"
+            "$description": "Secondary button border - hover"
+          },
+          "pressed": {
+            "$value": "{color.primary.400}",
+            "$type": "color",
+            "$description": "Secondary button border - pressed"
           },
           "disabled": {
-            "$value": "{color.neutral.300}",
+            "$value": "{color.primary.400}",
             "$type": "color",
-            "$description": "Secondary button border - disabled state"
+            "$description": "Secondary button border - disabled"
           }
         }
+      },
+      "tertiary": {
+        "background": {
+          "default": {
+            "$value": "{color.neutral.0}",
+            "$type": "color",
+            "$description": "Tertiary button background - default (white)"
+          },
+          "hover": {
+            "$value": "{color.neutral.0}",
+            "$type": "color",
+            "$description": "Tertiary button background - hover (white)"
+          },
+          "pressed": {
+            "$value": "{color.neutral.0}",
+            "$type": "color",
+            "$description": "Tertiary button background - pressed (white)"
+          },
+          "disabled": {
+            "$value": "{color.secondary.100}",
+            "$type": "color",
+            "$description": "Tertiary button background - disabled"
+          }
+        },
+        "text": {
+          "default": {
+            "$value": "{color.primary.500}",
+            "$type": "color",
+            "$description": "Tertiary button text - default"
+          },
+          "hover": {
+            "$value": "{color.primary.700}",
+            "$type": "color",
+            "$description": "Tertiary button text - hover"
+          },
+          "pressed": {
+            "$value": "{color.primary.400}",
+            "$type": "color",
+            "$description": "Tertiary button text - pressed"
+          },
+          "disabled": {
+            "$value": "{color.secondary.400}",
+            "$type": "color",
+            "$description": "Tertiary button text - disabled"
+          }
+        },
+        "icon": {
+          "default": {
+            "$value": "{color.primary.500}",
+            "$type": "color",
+            "$description": "Tertiary button icon - default"
+          },
+          "hover": {
+            "$value": "{color.primary.700}",
+            "$type": "color",
+            "$description": "Tertiary button icon - hover"
+          },
+          "pressed": {
+            "$value": "{color.primary.400}",
+            "$type": "color",
+            "$description": "Tertiary button icon - pressed"
+          },
+          "disabled": {
+            "$value": "{color.secondary.400}",
+            "$type": "color",
+            "$description": "Tertiary button icon - disabled"
+          }
+        },
+        "border": {
+          "$value": "transparent",
+          "$type": "color",
+          "$description": "Tertiary button border (transparent for all)"
+        }
+      },
+      "onlyIcon": {
+        "filled": {
+          "background": {
+            "default": { "$value": "{color.neutral.0}", "$type": "color", "$description": "Only Icon Filled - bg default (white)" },
+            "hover": { "$value": "{color.neutral.0}", "$type": "color", "$description": "Only Icon Filled - bg hover (white)" },
+            "pressed": { "$value": "{color.neutral.0}", "$type": "color", "$description": "Only Icon Filled - bg pressed (white)" },
+            "disabled": { "$value": "{color.secondary.100}", "$type": "color", "$description": "Only Icon Filled - bg disabled" }
+          },
+          "icon": {
+            "default": { "$value": "{color.neutral.0}", "$type": "color", "$description": "Only Icon Filled - icon default (white)" },
+            "hover": { "$value": "{color.neutral.0}", "$type": "color", "$description": "Only Icon Filled - icon hover (white)" },
+            "pressed": { "$value": "{color.neutral.0}", "$type": "color", "$description": "Only Icon Filled - icon pressed (white)" },
+            "disabled": { "$value": "{color.secondary.400}", "$type": "color", "$description": "Only Icon Filled - icon disabled" }
+          },
+          "border": { "$value": "transparent", "$type": "color", "$description": "Only Icon Filled - border transparent" }
+        },
+        "outline": {
+          "background": {
+            "default": { "$value": "{color.neutral.0}", "$type": "color", "$description": "Only Icon Outline - bg (white all)" },
+            "hover": { "$value": "{color.neutral.0}", "$type": "color", "$description": "Only Icon Outline - bg hover" },
+            "pressed": { "$value": "{color.neutral.0}", "$type": "color", "$description": "Only Icon Outline - bg pressed" },
+            "disabled": { "$value": "{color.neutral.0}", "$type": "color", "$description": "Only Icon Outline - bg disabled" }
+          },
+          "icon": {
+            "default": { "$value": "{color.primary.500}", "$type": "color", "$description": "Only Icon Outline - icon default" },
+            "hover": { "$value": "{color.primary.700}", "$type": "color", "$description": "Only Icon Outline - icon hover" },
+            "pressed": { "$value": "{color.primary.400}", "$type": "color", "$description": "Only Icon Outline - icon pressed" },
+            "disabled": { "$value": "{color.secondary.400}", "$type": "color", "$description": "Only Icon Outline - icon disabled" }
+          },
+          "border": {
+            "default": { "$value": "{color.primary.500}", "$type": "color", "$description": "Only Icon Outline - border default" },
+            "hover": { "$value": "{color.primary.700}", "$type": "color", "$description": "Only Icon Outline - border hover" },
+            "pressed": { "$value": "{color.primary.400}", "$type": "color", "$description": "Only Icon Outline - border pressed" },
+            "disabled": { "$value": "{color.secondary.100}", "$type": "color", "$description": "Only Icon Outline - border disabled" }
+          }
+        },
+        "ghost": {
+          "background": {
+            "default": { "$value": "transparent", "$type": "color", "$description": "Only Icon Ghost - bg (clear all)" },
+            "hover": { "$value": "transparent", "$type": "color", "$description": "Only Icon Ghost - bg hover" },
+            "pressed": { "$value": "transparent", "$type": "color", "$description": "Only Icon Ghost - bg pressed" },
+            "disabled": { "$value": "transparent", "$type": "color", "$description": "Only Icon Ghost - bg disabled" }
+          },
+          "icon": {
+            "default": { "$value": "{color.primary.500}", "$type": "color", "$description": "Only Icon Ghost - icon default" },
+            "hover": { "$value": "{color.primary.700}", "$type": "color", "$description": "Only Icon Ghost - icon hover" },
+            "pressed": { "$value": "{color.primary.400}", "$type": "color", "$description": "Only Icon Ghost - icon pressed" },
+            "disabled": { "$value": "{color.secondary.400}", "$type": "color", "$description": "Only Icon Ghost - icon disabled" }
+          },
+          "border": { "$value": "transparent", "$type": "color", "$description": "Only Icon Ghost - border (clear all)" }
+        }
+      },
+      "link": {
+        "background": {
+          "default": { "$value": "{color.neutral.0}", "$type": "color", "$description": "Link button background - default (white)" },
+          "hover": { "$value": "{color.neutral.0}", "$type": "color", "$description": "Link button background - hover" },
+          "pressed": { "$value": "{color.neutral.0}", "$type": "color", "$description": "Link button background - pressed" },
+          "disabled": { "$value": "{color.secondary.100}", "$type": "color", "$description": "Link button background - disabled" }
+        },
+        "text": {
+          "default": { "$value": "{color.primary.500}", "$type": "color", "$description": "Link button text - default" },
+          "hover": { "$value": "{color.primary.700}", "$type": "color", "$description": "Link button text - hover" },
+          "pressed": { "$value": "{color.primary.400}", "$type": "color", "$description": "Link button text - pressed" },
+          "disabled": { "$value": "{color.secondary.400}", "$type": "color", "$description": "Link button text - disabled" }
+        },
+        "icon": {
+          "default": { "$value": "{color.primary.500}", "$type": "color", "$description": "Link button icon - default" },
+          "hover": { "$value": "{color.primary.700}", "$type": "color", "$description": "Link button icon - hover" },
+          "pressed": { "$value": "{color.primary.400}", "$type": "color", "$description": "Link button icon - pressed" },
+          "disabled": { "$value": "{color.secondary.400}", "$type": "color", "$description": "Link button icon - disabled" }
+        },
+        "border": { "$value": "transparent", "$type": "color", "$description": "Link button border (transparent for all - like secondary)" }
       },
       "ghost": {
         "background": {

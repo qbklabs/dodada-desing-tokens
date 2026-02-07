@@ -112,191 +112,195 @@
       "button": {
         "primary": {
           "background": {
-            "default": {
-              "$value": "{color.button.primary.background.default}",
-              "$type": "color",
-              "$description": "Primary button background - default state"
-            },
-            "hover": {
-              "$value": "{color.button.primary.background.hover}",
-              "$type": "color",
-              "$description": "Primary button background - hover state"
-            },
-            "pressed": {
-              "$value": "{color.button.primary.background.pressed}",
-              "$type": "color",
-              "$description": "Primary button background - pressed state"
-            },
-            "disabled": {
-              "$value": "{color.button.primary.background.disabled}",
-              "$type": "color",
-              "$description": "Primary button background - disabled state"
-            }
+            "default": { "$value": "{color.button.primary.background.default}", "$type": "color", "$description": "Primary button background - default" },
+            "hover": { "$value": "{color.button.primary.background.hover}", "$type": "color", "$description": "Primary button background - hover" },
+            "pressed": { "$value": "{color.button.primary.background.pressed}", "$type": "color", "$description": "Primary button background - pressed" },
+            "disabled": { "$value": "{color.button.primary.background.disabled}", "$type": "color", "$description": "Primary button background - disabled" }
           },
           "text": {
-            "$value": "{color.button.primary.text}",
-            "$type": "color",
-            "$description": "Primary button text color"
+            "default": { "$value": "{color.button.primary.text.default}", "$type": "color", "$description": "Primary button text - default" },
+            "hover": { "$value": "{color.button.primary.text.hover}", "$type": "color", "$description": "Primary button text - hover" },
+            "pressed": { "$value": "{color.button.primary.text.pressed}", "$type": "color", "$description": "Primary button text - pressed" },
+            "disabled": { "$value": "{color.button.primary.text.disabled}", "$type": "color", "$description": "Primary button text - disabled" }
           },
+          "icon": {
+            "default": { "$value": "{color.button.primary.icon.default}", "$type": "color", "$description": "Primary button icon - default" },
+            "hover": { "$value": "{color.button.primary.icon.hover}", "$type": "color", "$description": "Primary button icon - hover" },
+            "pressed": { "$value": "{color.button.primary.icon.pressed}", "$type": "color", "$description": "Primary button icon - pressed" },
+            "disabled": { "$value": "{color.button.primary.icon.disabled}", "$type": "color", "$description": "Primary button icon - disabled" }
+          },
+          "border": { "$value": "{color.button.primary.border}", "$type": "color", "$description": "Primary button border (transparent)" },
           "height": {
-            "sm": {
-              "$value": "{component.button.height.sm}",
-              "$type": "dimension",
-              "$description": "Primary button small height"
-            },
-            "md": {
-              "$value": "{component.button.height.md}",
-              "$type": "dimension",
-              "$description": "Primary button medium height"
-            },
-            "lg": {
-              "$value": "{component.button.height.lg}",
-              "$type": "dimension",
-              "$description": "Primary button large height"
-            }
+            "regular": { "$value": "{component.button.height.regular}", "$type": "dimension", "$description": "Primary button regular height (48px)" },
+            "medium": { "$value": "{component.button.height.medium}", "$type": "dimension", "$description": "Primary button medium height (36px)" },
+            "small": { "$value": "{component.button.height.small}", "$type": "dimension", "$description": "Primary button small height (34px)" }
           },
-          "padding": {
-            "horizontal": {
-              "$value": "{component.button.padding.horizontal.md}",
-              "$type": "dimension",
-              "$description": "Primary button horizontal padding"
-            }
-          },
-          "radius": {
-            "$value": "{component.button.radius.md}",
-            "$type": "dimension",
-            "$description": "Primary button border radius"
-          },
-          "elevation": {
-            "$value": "{elevation.level.0}",
-            "$type": "number",
-            "$description": "Primary button elevation"
-          }
+          "padding": { "horizontal": { "$value": "{component.button.padding.horizontal.md}", "$type": "dimension", "$description": "Primary button horizontal padding" } },
+          "radius": { "$value": "{component.button.radius.md}", "$type": "dimension", "$description": "Primary button border radius" },
+          "elevation": { "$value": "{elevation.level.0}", "$type": "number", "$description": "Primary button elevation" }
         },
         "secondary": {
           "background": {
-            "default": {
-              "$value": "{color.button.secondary.background.default}",
-              "$type": "color",
-              "$description": "Secondary button background - default state"
-            },
-            "hover": {
-              "$value": "{color.button.secondary.background.hover}",
-              "$type": "color",
-              "$description": "Secondary button background - hover state"
-            },
-            "pressed": {
-              "$value": "{color.button.secondary.background.pressed}",
-              "$type": "color",
-              "$description": "Secondary button background - pressed state"
-            },
-            "disabled": {
-              "$value": "{color.button.secondary.background.disabled}",
-              "$type": "color",
-              "$description": "Secondary button background - disabled state"
-            }
+            "default": { "$value": "{color.button.secondary.background.default}", "$type": "color", "$description": "Secondary button background - default" },
+            "hover": { "$value": "{color.button.secondary.background.hover}", "$type": "color", "$description": "Secondary button background - hover" },
+            "pressed": { "$value": "{color.button.secondary.background.pressed}", "$type": "color", "$description": "Secondary button background - pressed" },
+            "disabled": { "$value": "{color.button.secondary.background.disabled}", "$type": "color", "$description": "Secondary button background - disabled" }
           },
           "text": {
-            "$value": "{color.button.secondary.text}",
-            "$type": "color",
-            "$description": "Secondary button text color"
+            "default": { "$value": "{color.button.secondary.text.default}", "$type": "color", "$description": "Secondary button text - default" },
+            "hover": { "$value": "{color.button.secondary.text.hover}", "$type": "color", "$description": "Secondary button text - hover" },
+            "pressed": { "$value": "{color.button.secondary.text.pressed}", "$type": "color", "$description": "Secondary button text - pressed" },
+            "disabled": { "$value": "{color.button.secondary.text.disabled}", "$type": "color", "$description": "Secondary button text - disabled" }
+          },
+          "icon": {
+            "default": { "$value": "{color.button.secondary.icon.default}", "$type": "color", "$description": "Secondary button icon - default" },
+            "hover": { "$value": "{color.button.secondary.icon.hover}", "$type": "color", "$description": "Secondary button icon - hover" },
+            "pressed": { "$value": "{color.button.secondary.icon.pressed}", "$type": "color", "$description": "Secondary button icon - pressed" },
+            "disabled": { "$value": "{color.button.secondary.icon.disabled}", "$type": "color", "$description": "Secondary button icon - disabled" }
           },
           "border": {
-            "default": {
-              "$value": "{color.button.secondary.border.default}",
-              "$type": "color",
-              "$description": "Secondary button border color - default state"
-            },
-            "hover": {
-              "$value": "{color.button.secondary.border.hover}",
-              "$type": "color",
-              "$description": "Secondary button border color - hover state"
-            }
+            "default": { "$value": "{color.button.secondary.border.default}", "$type": "color", "$description": "Secondary button border - default" },
+            "hover": { "$value": "{color.button.secondary.border.hover}", "$type": "color", "$description": "Secondary button border - hover" },
+            "pressed": { "$value": "{color.button.secondary.border.pressed}", "$type": "color", "$description": "Secondary button border - pressed" },
+            "disabled": { "$value": "{color.button.secondary.border.disabled}", "$type": "color", "$description": "Secondary button border - disabled" }
           },
           "height": {
-            "sm": {
-              "$value": "{component.button.height.sm}",
-              "$type": "dimension",
-              "$description": "Secondary button small height"
+            "regular": { "$value": "{component.button.height.regular}", "$type": "dimension", "$description": "Secondary button regular height" },
+            "medium": { "$value": "{component.button.height.medium}", "$type": "dimension", "$description": "Secondary button medium height" },
+            "small": { "$value": "{component.button.height.small}", "$type": "dimension", "$description": "Secondary button small height" }
+          },
+          "padding": { "horizontal": { "$value": "{component.button.padding.horizontal.md}", "$type": "dimension", "$description": "Secondary button horizontal padding" } },
+          "radius": { "$value": "{component.button.radius.md}", "$type": "dimension", "$description": "Secondary button border radius" },
+          "elevation": { "$value": "{elevation.level.0}", "$type": "number", "$description": "Secondary button elevation" }
+        },
+        "tertiary": {
+          "background": {
+            "default": { "$value": "{color.button.tertiary.background.default}", "$type": "color", "$description": "Tertiary button background - default" },
+            "hover": { "$value": "{color.button.tertiary.background.hover}", "$type": "color", "$description": "Tertiary button background - hover" },
+            "pressed": { "$value": "{color.button.tertiary.background.pressed}", "$type": "color", "$description": "Tertiary button background - pressed" },
+            "disabled": { "$value": "{color.button.tertiary.background.disabled}", "$type": "color", "$description": "Tertiary button background - disabled" }
+          },
+          "text": {
+            "default": { "$value": "{color.button.tertiary.text.default}", "$type": "color", "$description": "Tertiary button text - default" },
+            "hover": { "$value": "{color.button.tertiary.text.hover}", "$type": "color", "$description": "Tertiary button text - hover" },
+            "pressed": { "$value": "{color.button.tertiary.text.pressed}", "$type": "color", "$description": "Tertiary button text - pressed" },
+            "disabled": { "$value": "{color.button.tertiary.text.disabled}", "$type": "color", "$description": "Tertiary button text - disabled" }
+          },
+          "icon": {
+            "default": { "$value": "{color.button.tertiary.icon.default}", "$type": "color", "$description": "Tertiary button icon - default" },
+            "hover": { "$value": "{color.button.tertiary.icon.hover}", "$type": "color", "$description": "Tertiary button icon - hover" },
+            "pressed": { "$value": "{color.button.tertiary.icon.pressed}", "$type": "color", "$description": "Tertiary button icon - pressed" },
+            "disabled": { "$value": "{color.button.tertiary.icon.disabled}", "$type": "color", "$description": "Tertiary button icon - disabled" }
+          },
+          "border": { "$value": "{color.button.tertiary.border}", "$type": "color", "$description": "Tertiary button border (transparent)" },
+          "height": {
+            "regular": { "$value": "{component.button.height.regular}", "$type": "dimension", "$description": "Tertiary button regular height" },
+            "medium": { "$value": "{component.button.height.medium}", "$type": "dimension", "$description": "Tertiary button medium height" },
+            "small": { "$value": "{component.button.height.small}", "$type": "dimension", "$description": "Tertiary button small height" }
+          },
+          "padding": { "horizontal": { "$value": "{component.button.padding.horizontal.md}", "$type": "dimension", "$description": "Tertiary button horizontal padding" } },
+          "radius": { "$value": "{component.button.radius.md}", "$type": "dimension", "$description": "Tertiary button border radius" },
+          "elevation": { "$value": "{elevation.level.0}", "$type": "number", "$description": "Tertiary button elevation" }
+        },
+        "onlyIcon": {
+          "filled": {
+            "background": {
+              "default": { "$value": "{color.button.onlyIcon.filled.background.default}", "$type": "color", "$description": "Only Icon Filled - background default" },
+              "hover": { "$value": "{color.button.onlyIcon.filled.background.hover}", "$type": "color", "$description": "Only Icon Filled - background hover" },
+              "pressed": { "$value": "{color.button.onlyIcon.filled.background.pressed}", "$type": "color", "$description": "Only Icon Filled - background pressed" },
+              "disabled": { "$value": "{color.button.onlyIcon.filled.background.disabled}", "$type": "color", "$description": "Only Icon Filled - background disabled" }
             },
-            "md": {
-              "$value": "{component.button.height.md}",
-              "$type": "dimension",
-              "$description": "Secondary button medium height"
+            "icon": {
+              "default": { "$value": "{color.button.onlyIcon.filled.icon.default}", "$type": "color", "$description": "Only Icon Filled - icon default" },
+              "hover": { "$value": "{color.button.onlyIcon.filled.icon.hover}", "$type": "color", "$description": "Only Icon Filled - icon hover" },
+              "pressed": { "$value": "{color.button.onlyIcon.filled.icon.pressed}", "$type": "color", "$description": "Only Icon Filled - icon pressed" },
+              "disabled": { "$value": "{color.button.onlyIcon.filled.icon.disabled}", "$type": "color", "$description": "Only Icon Filled - icon disabled" }
             },
-            "lg": {
-              "$value": "{component.button.height.lg}",
-              "$type": "dimension",
-              "$description": "Secondary button large height"
-            }
+            "border": { "$value": "{color.button.onlyIcon.filled.border}", "$type": "color", "$description": "Only Icon Filled - border transparent" },
+            "size": { "$value": "{component.button.onlyIcon.size}", "$type": "dimension", "$description": "Only Icon Filled - width and height 48px" }
           },
-          "padding": {
-            "horizontal": {
-              "$value": "{component.button.padding.horizontal.md}",
-              "$type": "dimension",
-              "$description": "Secondary button horizontal padding"
-            }
+          "outline": {
+            "background": {
+              "default": { "$value": "{color.button.onlyIcon.outline.background.default}", "$type": "color", "$description": "Only Icon Outline - background" },
+              "hover": { "$value": "{color.button.onlyIcon.outline.background.hover}", "$type": "color", "$description": "Only Icon Outline - background hover" },
+              "pressed": { "$value": "{color.button.onlyIcon.outline.background.pressed}", "$type": "color", "$description": "Only Icon Outline - background pressed" },
+              "disabled": { "$value": "{color.button.onlyIcon.outline.background.disabled}", "$type": "color", "$description": "Only Icon Outline - background disabled" }
+            },
+            "icon": {
+              "default": { "$value": "{color.button.onlyIcon.outline.icon.default}", "$type": "color", "$description": "Only Icon Outline - icon default" },
+              "hover": { "$value": "{color.button.onlyIcon.outline.icon.hover}", "$type": "color", "$description": "Only Icon Outline - icon hover" },
+              "pressed": { "$value": "{color.button.onlyIcon.outline.icon.pressed}", "$type": "color", "$description": "Only Icon Outline - icon pressed" },
+              "disabled": { "$value": "{color.button.onlyIcon.outline.icon.disabled}", "$type": "color", "$description": "Only Icon Outline - icon disabled" }
+            },
+            "border": {
+              "default": { "$value": "{color.button.onlyIcon.outline.border.default}", "$type": "color", "$description": "Only Icon Outline - border default" },
+              "hover": { "$value": "{color.button.onlyIcon.outline.border.hover}", "$type": "color", "$description": "Only Icon Outline - border hover" },
+              "pressed": { "$value": "{color.button.onlyIcon.outline.border.pressed}", "$type": "color", "$description": "Only Icon Outline - border pressed" },
+              "disabled": { "$value": "{color.button.onlyIcon.outline.border.disabled}", "$type": "color", "$description": "Only Icon Outline - border disabled" }
+            },
+            "size": { "$value": "{component.button.onlyIcon.size}", "$type": "dimension", "$description": "Only Icon Outline - width and height 48px" }
           },
-          "radius": {
-            "$value": "{component.button.radius.md}",
-            "$type": "dimension",
-            "$description": "Secondary button border radius"
-          },
-          "elevation": {
-            "$value": "{elevation.level.0}",
-            "$type": "number",
-            "$description": "Secondary button elevation"
+          "ghost": {
+            "background": {
+              "default": { "$value": "{color.button.onlyIcon.ghost.background.default}", "$type": "color", "$description": "Only Icon Ghost - background (clear)" },
+              "hover": { "$value": "{color.button.onlyIcon.ghost.background.hover}", "$type": "color", "$description": "Only Icon Ghost - background hover" },
+              "pressed": { "$value": "{color.button.onlyIcon.ghost.background.pressed}", "$type": "color", "$description": "Only Icon Ghost - background pressed" },
+              "disabled": { "$value": "{color.button.onlyIcon.ghost.background.disabled}", "$type": "color", "$description": "Only Icon Ghost - background disabled" }
+            },
+            "icon": {
+              "default": { "$value": "{color.button.onlyIcon.ghost.icon.default}", "$type": "color", "$description": "Only Icon Ghost - icon default" },
+              "hover": { "$value": "{color.button.onlyIcon.ghost.icon.hover}", "$type": "color", "$description": "Only Icon Ghost - icon hover" },
+              "pressed": { "$value": "{color.button.onlyIcon.ghost.icon.pressed}", "$type": "color", "$description": "Only Icon Ghost - icon pressed" },
+              "disabled": { "$value": "{color.button.onlyIcon.ghost.icon.disabled}", "$type": "color", "$description": "Only Icon Ghost - icon disabled" }
+            },
+            "border": { "$value": "{color.button.onlyIcon.ghost.border}", "$type": "color", "$description": "Only Icon Ghost - border (clear)" },
+            "size": { "$value": "{component.button.onlyIcon.size}", "$type": "dimension", "$description": "Only Icon Ghost - width and height 48px" }
           }
+        },
+        "link": {
+          "background": {
+            "default": { "$value": "{color.button.link.background.default}", "$type": "color", "$description": "Link button background - default" },
+            "hover": { "$value": "{color.button.link.background.hover}", "$type": "color", "$description": "Link button background - hover" },
+            "pressed": { "$value": "{color.button.link.background.pressed}", "$type": "color", "$description": "Link button background - pressed" },
+            "disabled": { "$value": "{color.button.link.background.disabled}", "$type": "color", "$description": "Link button background - disabled" }
+          },
+          "text": {
+            "default": { "$value": "{color.button.link.text.default}", "$type": "color", "$description": "Link button text - default" },
+            "hover": { "$value": "{color.button.link.text.hover}", "$type": "color", "$description": "Link button text - hover" },
+            "pressed": { "$value": "{color.button.link.text.pressed}", "$type": "color", "$description": "Link button text - pressed" },
+            "disabled": { "$value": "{color.button.link.text.disabled}", "$type": "color", "$description": "Link button text - disabled" }
+          },
+          "icon": {
+            "default": { "$value": "{color.button.link.icon.default}", "$type": "color", "$description": "Link button icon - default" },
+            "hover": { "$value": "{color.button.link.icon.hover}", "$type": "color", "$description": "Link button icon - hover" },
+            "pressed": { "$value": "{color.button.link.icon.pressed}", "$type": "color", "$description": "Link button icon - pressed" },
+            "disabled": { "$value": "{color.button.link.icon.disabled}", "$type": "color", "$description": "Link button icon - disabled" }
+          },
+          "border": { "$value": "{color.button.link.border}", "$type": "color", "$description": "Link button border (transparent for all)" },
+          "height": {
+            "regular": { "$value": "{component.button.height.regular}", "$type": "dimension", "$description": "Link button regular height" },
+            "medium": { "$value": "{component.button.height.medium}", "$type": "dimension", "$description": "Link button medium height" },
+            "small": { "$value": "{component.button.height.small}", "$type": "dimension", "$description": "Link button small height" }
+          },
+          "padding": { "horizontal": { "$value": "{component.button.padding.horizontal.link}", "$type": "dimension", "$description": "Link button horizontal padding (0)" } },
+          "radius": { "$value": "{component.button.radius.md}", "$type": "dimension", "$description": "Link button border radius" },
+          "elevation": { "$value": "{elevation.level.0}", "$type": "number", "$description": "Link button elevation" }
         },
         "ghost": {
           "text": {
-            "default": {
-              "$value": "{color.button.ghost.text.default}",
-              "$type": "color",
-              "$description": "Ghost button text - default state"
-            },
-            "hover": {
-              "$value": "{color.button.ghost.text.hover}",
-              "$type": "color",
-              "$description": "Ghost button text - hover state"
-            }
+            "default": { "$value": "{color.button.ghost.text.default}", "$type": "color", "$description": "Ghost button text - default" },
+            "hover": { "$value": "{color.button.ghost.text.hover}", "$type": "color", "$description": "Ghost button text - hover" }
           },
           "background": {
-            "hover": {
-              "$value": "{color.button.ghost.background.hover}",
-              "$type": "color",
-              "$description": "Ghost button background - hover state"
-            }
+            "hover": { "$value": "{color.button.ghost.background.hover}", "$type": "color", "$description": "Ghost button background - hover" }
           },
           "height": {
-            "sm": {
-              "$value": "{component.button.height.sm}",
-              "$type": "dimension",
-              "$description": "Ghost button small height"
-            },
-            "md": {
-              "$value": "{component.button.height.md}",
-              "$type": "dimension",
-              "$description": "Ghost button medium height"
-            },
-            "lg": {
-              "$value": "{component.button.height.lg}",
-              "$type": "dimension",
-              "$description": "Ghost button large height"
-            }
+            "regular": { "$value": "{component.button.height.regular}", "$type": "dimension", "$description": "Ghost button regular height" },
+            "medium": { "$value": "{component.button.height.medium}", "$type": "dimension", "$description": "Ghost button medium height" },
+            "small": { "$value": "{component.button.height.small}", "$type": "dimension", "$description": "Ghost button small height" }
           },
-          "padding": {
-            "horizontal": {
-              "$value": "{component.button.padding.horizontal.md}",
-              "$type": "dimension",
-              "$description": "Ghost button horizontal padding"
-            }
-          },
-          "radius": {
-            "$value": "{component.button.radius.md}",
-            "$type": "dimension",
-            "$description": "Ghost button border radius"
-          }
+          "padding": { "horizontal": { "$value": "{component.button.padding.horizontal.md}", "$type": "dimension", "$description": "Ghost button horizontal padding" } },
+          "radius": { "$value": "{component.button.radius.md}", "$type": "dimension", "$description": "Ghost button border radius" }
         }
       },
       "card": {

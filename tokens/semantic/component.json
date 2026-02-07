@@ -3,43 +3,50 @@
   "component": {
     "button": {
       "height": {
-        "sm": {
-          "$value": "{sizing.button.height.sm}",
+        "regular": {
+          "$value": "{sizing.button.height.regular}",
           "$type": "dimension",
-          "$description": "Small button height"
+          "$description": "Regular button height (48px)"
         },
-        "md": {
-          "$value": "{sizing.button.height.md}",
+        "medium": {
+          "$value": "{sizing.button.height.medium}",
           "$type": "dimension",
-          "$description": "Medium button height (default)"
+          "$description": "Medium button height (36px)"
         },
-        "lg": {
-          "$value": "{sizing.button.height.lg}",
+        "small": {
+          "$value": "{sizing.button.height.small}",
           "$type": "dimension",
-          "$description": "Large button height"
-        },
-        "xl": {
-          "$value": "{sizing.button.height.xl}",
+          "$description": "Small button height (34px)"
+        }
+      },
+      "onlyIcon": {
+        "size": {
+          "$value": "{sizing.button.onlyIcon.size}",
           "$type": "dimension",
-          "$description": "Extra large button height"
+          "$description": "Only Icon button width and height (48x48)"
         }
       },
       "padding": {
         "horizontal": {
           "sm": {
-            "$value": "{spacing.md}",
+            "$value": "24px",
             "$type": "dimension",
-            "$description": "Small button horizontal padding"
+            "$description": "Button horizontal padding (24px) - small size"
           },
           "md": {
-            "$value": "{spacing.lg}",
+            "$value": "24px",
             "$type": "dimension",
-            "$description": "Medium button horizontal padding"
+            "$description": "Button horizontal padding (24px) - medium size"
           },
           "lg": {
-            "$value": "{spacing.xl}",
+            "$value": "24px",
             "$type": "dimension",
-            "$description": "Large button horizontal padding"
+            "$description": "Button horizontal padding (24px) - regular size"
+          },
+          "link": {
+            "$value": "0px",
+            "$type": "dimension",
+            "$description": "Link button horizontal padding (0 - no padding)"
           }
         },
         "vertical": {
@@ -83,9 +90,9 @@
         }
       },
       "gap": {
-        "$value": "{spacing.sm}",
+        "$value": "8px",
         "$type": "dimension",
-        "$description": "Gap between icon and text in button"
+        "$description": "Gap between icon and text in button (8px)"
       },
       "minWidth": {
         "sm": {

@@ -35,25 +35,27 @@
     },
     "button": {
       "height": {
-        "sm": {
-          "$value": "32px",
-          "$type": "dimension",
-          "$description": "Small button height - compact actions"
-        },
-        "md": {
-          "$value": "40px",
-          "$type": "dimension",
-          "$description": "Medium button height - standard actions"
-        },
-        "lg": {
+        "regular": {
           "$value": "48px",
           "$type": "dimension",
-          "$description": "Large button height - prominent CTAs"
+          "$description": "Regular button height (48px)"
         },
-        "xl": {
-          "$value": "56px",
+        "medium": {
+          "$value": "36px",
           "$type": "dimension",
-          "$description": "Extra large button height - hero CTAs"
+          "$description": "Medium button height (36px)"
+        },
+        "small": {
+          "$value": "34px",
+          "$type": "dimension",
+          "$description": "Small button height (34px)"
+        }
+      },
+      "onlyIcon": {
+        "size": {
+          "$value": "48px",
+          "$type": "dimension",
+          "$description": "Only Icon button width and height (48x48)"
         }
       },
       "minWidth": {
