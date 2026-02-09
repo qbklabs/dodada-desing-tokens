@@ -29,17 +29,22 @@ const ENV_KEYS = {
 const DIST_SUBDIRS = ['ios', 'android', 'web', 'css'];
 
 function loadDeployPaths() {
-  const configPath = path.join(ROOT, 'deploy-paths.json');
   let paths = {};
-  if (fs.existsSync(configPath)) {
+  const configPath = path.join(ROOT, 'deploy-paths.json');
+  const examplePath = path.join(ROOT, 'deploy-paths.example.json');
+  const toLoad = fs.existsSync(configPath) ? configPath : fs.existsSync(examplePath) ? examplePath : null;
+  if (toLoad) {
     try {
-      const raw = fs.readFileSync(configPath, 'utf8');
+      const raw = fs.readFileSync(toLoad, 'utf8');
       const config = JSON.parse(raw);
       if (config.paths && typeof config.paths === 'object') {
         paths = { ...config.paths };
       }
+      if (toLoad === examplePath) {
+        console.warn('Usando deploy-paths.example.json. Para rutas propias, copia a deploy-paths.json y edita.');
+      }
     } catch (e) {
-      console.warn('Warning: deploy-paths.json inválido o no legible:', e.message);
+      console.warn('Warning: config deploy inválido o no legible:', e.message);
     }
   }
   for (const key of DIST_SUBDIRS) {

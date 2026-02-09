@@ -53,14 +53,14 @@ function hexToComponents(hex) {
   return { r: '0', g: '0', b: '0', a: '1.000' };
 }
 
-function writeColoresXcassets(colorTokens, json, getNodeAtPath, resolveRef) {
-  const coloresDir = path.join(DIST_DIR, 'ios', 'Colores.xcassets');
-  if (!fs.existsSync(coloresDir)) fs.mkdirSync(coloresDir, { recursive: true });
+function writeColorsXcassets(colorTokens, json, getNodeAtPath, resolveRef) {
+  const colorsDir = path.join(DIST_DIR, 'ios', 'Assets', 'Colors.xcassets');
+  if (!fs.existsSync(colorsDir)) fs.mkdirSync(colorsDir, { recursive: true });
 
   const contentsJson = {
     info: { author: 'xcode', version: 1 },
   };
-  fs.writeFileSync(path.join(coloresDir, 'Contents.json'), JSON.stringify(contentsJson, null, 2), 'utf8');
+  fs.writeFileSync(path.join(colorsDir, 'Contents.json'), JSON.stringify(contentsJson, null, 2), 'utf8');
 
   for (const t of colorTokens) {
     let hex = t.value;
@@ -74,7 +74,7 @@ function writeColoresXcassets(colorTokens, json, getNodeAtPath, resolveRef) {
     }
     const comp = hexToComponents(hex);
     const colorsetName = t.caseName;
-    const colorsetDir = path.join(coloresDir, `${colorsetName}.colorset`);
+    const colorsetDir = path.join(colorsDir, `${colorsetName}.colorset`);
     if (!fs.existsSync(colorsetDir)) fs.mkdirSync(colorsetDir, { recursive: true });
     const colorContents = {
       colors: [
@@ -110,7 +110,7 @@ function findIconFile(filename) {
 }
 
 function writeIconsXcassets(iconTokens) {
-  const iconsDir = path.join(DIST_DIR, 'ios', 'Icons.xcassets');
+  const iconsDir = path.join(DIST_DIR, 'ios', 'Assets', 'Icons.xcassets');
   if (!fs.existsSync(iconsDir)) fs.mkdirSync(iconsDir, { recursive: true });
 
   const contentsJson = { info: { author: 'xcode', version: 1 } };
@@ -174,16 +174,23 @@ async function writeAndroidDrawable(iconTokens) {
 }
 
 async function runAssetGeneration(json, categoriesMap, getNodeAtPath, resolveRef) {
+  const iosAssetsDir = path.join(DIST_DIR, 'ios', 'Assets');
+  if (!fs.existsSync(iosAssetsDir)) fs.mkdirSync(iosAssetsDir, { recursive: true });
+  const legacyColores = path.join(DIST_DIR, 'ios', 'Colores.xcassets');
+  const legacyIcons = path.join(DIST_DIR, 'ios', 'Icons.xcassets');
+  if (fs.existsSync(legacyColores)) fs.rmSync(legacyColores, { recursive: true });
+  if (fs.existsSync(legacyIcons)) fs.rmSync(legacyIcons, { recursive: true });
+
   const colorTokens = (categoriesMap.get('color') || []).filter((t) => t.type === 'color');
   const iconTokens = (categoriesMap.get('icon') || []).filter((t) => t.type === 'asset' || t.type === 'string');
 
   if (colorTokens.length > 0) {
-    writeColoresXcassets(colorTokens, json, getNodeAtPath, resolveRef);
-    console.log('Colores.xcassets generado en dist/ios/Colores.xcassets');
+    writeColorsXcassets(colorTokens, json, getNodeAtPath, resolveRef);
+    console.log('Colors.xcassets generado en dist/ios/Assets/Colors.xcassets');
   }
   if (iconTokens.length > 0) {
     writeIconsXcassets(iconTokens);
-    console.log('Icons.xcassets generado en dist/ios/Icons.xcassets');
+    console.log('Icons.xcassets generado en dist/ios/Assets/Icons.xcassets');
     await writeAndroidDrawable(iconTokens);
   }
 }
@@ -191,7 +198,7 @@ async function runAssetGeneration(json, categoriesMap, getNodeAtPath, resolveRef
 module.exports = {
   runAssetGeneration,
   hexToComponents,
-  writeColoresXcassets,
+  writeColorsXcassets,
   writeIconsXcassets,
   writeAndroidDrawable,
 };
