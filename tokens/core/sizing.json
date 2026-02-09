@@ -49,6 +49,23 @@
           "$value": "34px",
           "$type": "dimension",
           "$description": "Small button height (34px)"
+        },
+        "link": {
+          "regular": {
+            "$value": "40px",
+            "$type": "dimension",
+            "$description": "Link button only - regular height (40px)"
+          },
+          "medium": {
+            "$value": "24px",
+            "$type": "dimension",
+            "$description": "Link button only - medium height (24px)"
+          },
+          "small": {
+            "$value": "22px",
+            "$type": "dimension",
+            "$description": "Link button only - small height (22px)"
+          }
         }
       },
       "onlyIcon": {

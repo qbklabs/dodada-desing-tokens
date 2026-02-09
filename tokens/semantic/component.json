@@ -17,6 +17,23 @@
           "$value": "{sizing.button.height.small}",
           "$type": "dimension",
           "$description": "Small button height (34px)"
+        },
+        "link": {
+          "regular": {
+            "$value": "{sizing.button.height.link.regular}",
+            "$type": "dimension",
+            "$description": "Link button only - regular height (40px)"
+          },
+          "medium": {
+            "$value": "{sizing.button.height.link.medium}",
+            "$type": "dimension",
+            "$description": "Link button only - medium height (24px)"
+          },
+          "small": {
+            "$value": "{sizing.button.height.link.small}",
+            "$type": "dimension",
+            "$description": "Link button only - small height (22px)"
+          }
         }
       },
       "onlyIcon": {

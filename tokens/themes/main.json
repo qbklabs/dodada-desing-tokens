@@ -278,9 +278,9 @@
           },
           "border": { "$value": "{color.button.link.border}", "$type": "color", "$description": "Link button border (transparent for all)" },
           "height": {
-            "regular": { "$value": "{component.button.height.regular}", "$type": "dimension", "$description": "Link button regular height" },
-            "medium": { "$value": "{component.button.height.medium}", "$type": "dimension", "$description": "Link button medium height" },
-            "small": { "$value": "{component.button.height.small}", "$type": "dimension", "$description": "Link button small height" }
+            "regular": { "$value": "{component.button.height.link.regular}", "$type": "dimension", "$description": "Link button regular height (40px)" },
+            "medium": { "$value": "{component.button.height.link.medium}", "$type": "dimension", "$description": "Link button medium height (24px)" },
+            "small": { "$value": "{component.button.height.link.small}", "$type": "dimension", "$description": "Link button small height (22px)" }
           },
           "padding": { "horizontal": { "$value": "{component.button.padding.horizontal.link}", "$type": "dimension", "$description": "Link button horizontal padding (0)" } },
           "radius": { "$value": "{component.button.radius.md}", "$type": "dimension", "$description": "Link button border radius" },

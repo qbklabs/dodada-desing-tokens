@@ -735,10 +735,10 @@
       "onlyIcon": {
         "filled": {
           "background": {
-            "default": { "$value": "{color.neutral.0}", "$type": "color", "$description": "Only Icon Filled - bg default (white)" },
+            "default": { "$value": "{color.primary.500}", "$type": "color", "$description": "Only Icon Filled - bg default (primary500)" },
             "hover": { "$value": "{color.neutral.0}", "$type": "color", "$description": "Only Icon Filled - bg hover (white)" },
             "pressed": { "$value": "{color.neutral.0}", "$type": "color", "$description": "Only Icon Filled - bg pressed (white)" },
-            "disabled": { "$value": "{color.secondary.100}", "$type": "color", "$description": "Only Icon Filled - bg disabled" }
+            "disabled": { "$value": "{color.primary.500}", "$type": "color", "$description": "Only Icon Filled - bg disabled" }
           },
           "icon": {
             "default": { "$value": "{color.neutral.0}", "$type": "color", "$description": "Only Icon Filled - icon default (white)" },
@@ -786,10 +786,10 @@
       },
       "link": {
         "background": {
-          "default": { "$value": "{color.neutral.0}", "$type": "color", "$description": "Link button background - default (white)" },
-          "hover": { "$value": "{color.neutral.0}", "$type": "color", "$description": "Link button background - hover" },
-          "pressed": { "$value": "{color.neutral.0}", "$type": "color", "$description": "Link button background - pressed" },
-          "disabled": { "$value": "{color.secondary.100}", "$type": "color", "$description": "Link button background - disabled" }
+          "default": { "$value": "transparent", "$type": "color", "$description": "Link button background - default (transparent)" },
+          "hover": { "$value": "transparent", "$type": "color", "$description": "Link button background - hover (transparent)" },
+          "pressed": { "$value": "transparent", "$type": "color", "$description": "Link button background - pressed (transparent)" },
+          "disabled": { "$value": "transparent", "$type": "color", "$description": "Link button background - disabled (transparent)" }
         },
         "text": {
           "default": { "$value": "{color.primary.500}", "$type": "color", "$description": "Link button text - default" },
