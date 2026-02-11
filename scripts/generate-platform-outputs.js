@@ -744,6 +744,469 @@ function emitDDDButtonThemeSwift(json, iosDir) {
   fs.writeFileSync(path.join(componentDir, 'DDDButtonTheme.swift'), lines.join('\n'), 'utf8');
 }
 
+/** Swift literal for a resolved color value (hex string or "transparent"). */
+function swiftColorLiteral(value) {
+  if (value == null) return 'nil';
+  const v = String(value).trim();
+  if (v.toLowerCase() === 'transparent') return 'Color.clear';
+  return `Color(hex: "${escapeSwiftString(v)}")`;
+}
+
+/** Swift literal for dimension (CGFloat). */
+function swiftDimensionLiteral(value) {
+  if (value == null) return 'nil';
+  const n = parseDimensionPx(value);
+  return `CGFloat(${n})`;
+}
+
+/**
+ * Converts a reference string (e.g. "{color.button.primary.background.default}") to a Swift token expression.
+ * For color: uses path as-is (semantic tokens). For others: resolves ref chain then maps to primitive token.
+ */
+function refToSwiftToken(json, refStr) {
+  if (typeof refStr !== 'string' || !refStr.startsWith('{') || !refStr.endsWith('}')) return null;
+  const pathStr = refStr.slice(1, -1).trim();
+  const pathArr = pathStr.split('.');
+  const category = pathArr[0];
+
+  if (category === 'color') {
+    const caseName = pathToCaseName(pathArr.slice(1));
+    return `DodadaColorToken.${caseName}`;
+  }
+
+  let resolvedPath = pathArr;
+  let node = getNodeAtPath(json, pathArr);
+  let v = node && node.value;
+  while (typeof v === 'string' && v.startsWith('{') && v.endsWith('}')) {
+    resolvedPath = v.slice(1, -1).trim().split('.');
+    node = getNodeAtPath(json, resolvedPath);
+    v = node && node.value;
+  }
+
+  const cat = resolvedPath[0];
+  if (cat === 'spacing') {
+    return `DodadaSpacingToken.${pathToCaseName(resolvedPath.slice(1))}`;
+  }
+  if (cat === 'radius') {
+    return `DodadaRadiusToken.${pathToCaseName(resolvedPath.slice(1))}`;
+  }
+  if (cat === 'sizing' && resolvedPath[1] === 'button') {
+    if (resolvedPath[2] === 'height') {
+      if (resolvedPath[3] === 'link') {
+        const size = resolvedPath[4];
+        return `DodadaSizingToken.buttonHeightLink${size.charAt(0).toUpperCase() + size.slice(1)}`;
+      }
+      const size = resolvedPath[3];
+      return `DodadaSizingToken.buttonHeight${size.charAt(0).toUpperCase() + size.slice(1)}`;
+    }
+    if (resolvedPath[2] === 'onlyIcon') {
+      return 'DodadaSizingToken.buttonOnlyIconSize';
+    }
+  }
+  if (cat === 'elevation' && resolvedPath[1] === 'level') {
+    const n = resolvedPath[2];
+    const caseName = swiftSafeSegment('level_' + n) || 'levelZero';
+    return `DodadaElevation.${caseName}`;
+  }
+  return null;
+}
+
+/**
+ * Maps a dimension literal (e.g. "24px", "8px") to the closest Swift token when no ref exists.
+ */
+function dimensionLiteralToSwiftToken(value) {
+  if (value == null) return null;
+  const px = parseDimensionPx(value);
+  const spacingMap = { 0: 'zero', 2: 'twoXs', 4: 'xs', 8: 'sm', 12: 'md', 16: 'lg', 24: 'xl', 32: 'twoXl', 40: 'threeXl', 48: 'fourXl', 64: 'fiveXl' };
+  if (spacingMap[px] !== undefined) return `DodadaSpacingToken.${pathToCaseName([spacingMap[px]])}`;
+  const radiusMap = { 0: 'none', 2: 'xs', 4: 'sm', 8: 'md', 12: 'lg', 16: 'xl', 24: 'twoXl', 32: 'threeXl', 9999: 'full' };
+  if (radiusMap[px] !== undefined) return `DodadaRadiusToken.${pathToCaseName([radiusMap[px]])}`;
+  const sizingMap = { 48: 'buttonHeightRegular', 36: 'buttonHeightMedium', 34: 'buttonHeightSmall', 40: 'buttonHeightLinkRegular', 24: 'buttonHeightLinkMedium', 22: 'buttonHeightLinkSmall' };
+  if (sizingMap[px] !== undefined) return `DodadaSizingToken.${sizingMap[px]}`;
+  return null;
+}
+
+/**
+ * Converts a ref or literal value to Swift token expression. Tries ref first, then literal mapping.
+ */
+function valueToSwiftToken(json, rawValue, resolvedValue, tokenKind) {
+  if (rawValue != null && typeof rawValue === 'string' && rawValue.startsWith('{') && rawValue.endsWith('}')) {
+    const token = refToSwiftToken(json, rawValue);
+    if (token) return token;
+  }
+  if (tokenKind === 'elevation' && typeof resolvedValue === 'number') {
+    const caseName = swiftSafeSegment('level_' + resolvedValue) || 'levelZero';
+    return `DodadaElevation.${caseName}`;
+  }
+  return dimensionLiteralToSwiftToken(resolvedValue);
+}
+
+/**
+ * Generates Fenix-style button tokens: one struct per specification (variant + size)
+ * with let properties, private init with defaults, and static lets per state (defaultState, hoverState, pressedState, disabledState).
+ */
+function getRawValue(node, ...keys) {
+  let cur = node;
+  for (const k of keys) {
+    cur = cur && cur[k];
+  }
+  return cur && cur.value !== undefined ? cur.value : undefined;
+}
+
+function emitFenixStyleButtonTokens(json, iosDir) {
+  const themeMain = getNodeAtPath(json, ['theme', 'main']);
+  if (!themeMain) return;
+  const resolved = resolveThemeSubtree(json, themeMain);
+  const buttonNode = resolved && resolved.button;
+  if (!buttonNode) return;
+
+  const componentDir = path.join(iosDir, 'Atoms', 'Buttons');
+  if (!fs.existsSync(componentDir)) fs.mkdirSync(componentDir, { recursive: true });
+
+  const componentButton = getNodeAtPath(json, ['component', 'button']);
+  const gapRaw = componentButton && componentButton.gap && getResolvedValue(componentButton.gap);
+  const gapResolved = gapRaw != null ? resolveRef(json, gapRaw) : null;
+  const defaultGapToken = valueToSwiftToken(json, gapRaw, gapResolved, 'dimension') || 'DodadaSpacingToken.sm';
+
+  const specs = [];
+
+  function addSpec(variantKey, sizeKey, structName, getNode, getRawNode) {
+    const node = getNode();
+    const rawNode = getRawNode ? getRawNode() : null;
+    if (!node) return;
+
+    const getRaw = (r, ...keys) => (r ? getRawValue(r, ...keys) : undefined);
+    const getRes = (n) => (n && n.value !== undefined ? n.value : undefined);
+
+    const bgDefaultRaw = getRaw(rawNode, 'background', 'default');
+    const bgHoverRaw = getRaw(rawNode, 'background', 'hover');
+    const bgPressedRaw = getRaw(rawNode, 'background', 'pressed');
+    const bgDisabledRaw = getRaw(rawNode, 'background', 'disabled');
+    const textDefaultRaw = getRaw(rawNode, 'text', 'default');
+    const textHoverRaw = getRaw(rawNode, 'text', 'hover');
+    const textPressedRaw = getRaw(rawNode, 'text', 'pressed');
+    const textDisabledRaw = getRaw(rawNode, 'text', 'disabled');
+    const iconDefaultRaw = getRaw(rawNode, 'icon', 'default');
+    const iconHoverRaw = getRaw(rawNode, 'icon', 'hover');
+    const iconPressedRaw = getRaw(rawNode, 'icon', 'pressed');
+    const iconDisabledRaw = getRaw(rawNode, 'icon', 'disabled');
+    const borderRaw = getRaw(rawNode, 'border');
+    const borderDefaultRaw = rawNode && rawNode.border && rawNode.border.default != null ? getRaw(rawNode, 'border', 'default') : borderRaw;
+    const borderHoverRaw = rawNode && rawNode.border && rawNode.border.hover != null ? getRaw(rawNode, 'border', 'hover') : borderDefaultRaw;
+    const borderPressedRaw = rawNode && rawNode.border && rawNode.border.pressed != null ? getRaw(rawNode, 'border', 'pressed') : borderDefaultRaw;
+    const borderDisabledRaw = rawNode && rawNode.border && rawNode.border.disabled != null ? getRaw(rawNode, 'border', 'disabled') : borderDefaultRaw;
+
+    const heightRaw = sizeKey
+      ? getRaw(rawNode, 'height', sizeKey)
+      : getRaw(rawNode, 'size');
+    const heightResolved = heightRaw != null && typeof heightRaw === 'string' && heightRaw.startsWith('{') ? resolveRef(json, heightRaw) : (node.height && sizeKey ? getRes(node.height[sizeKey]) : node.size ? getRes(node.size) : null);
+    const paddingRaw = node.padding && node.padding.horizontal ? getRes(node.padding.horizontal) : null;
+    const paddingResolved = paddingRaw != null && typeof paddingRaw === 'string' && paddingRaw.startsWith('{') ? resolveRef(json, paddingRaw) : paddingRaw;
+    const radiusRaw = rawNode && rawNode.radius ? getRaw(rawNode, 'radius') : null;
+    const radiusResolved = node.radius ? getRes(node.radius) : null;
+    const elevationRaw = rawNode && rawNode.elevation ? getRaw(rawNode, 'elevation') : null;
+    const elevationResolved = node.elevation ? getRes(node.elevation) : null;
+
+    const paddingHRaw = rawNode && rawNode.padding && rawNode.padding.horizontal ? getRaw(rawNode, 'padding', 'horizontal') : null;
+
+    const toColorToken = (raw) => (raw && typeof raw === 'string' && raw.startsWith('{') ? refToSwiftToken(json, raw) : null);
+    const borderRadiusToken = valueToSwiftToken(json, radiusRaw, radiusResolved, 'dimension') || 'DodadaRadiusToken.md';
+    const gapToken = defaultGapToken;
+    const shapeHeightToken = valueToSwiftToken(json, heightRaw, heightResolved, 'dimension') || 'nil';
+    const paddingHToken = valueToSwiftToken(json, paddingHRaw, paddingResolved, 'dimension') || 'nil';
+    const elevationToken = valueToSwiftToken(json, elevationRaw, elevationResolved, 'elevation') || 'DodadaElevation.levelZero';
+
+    specs.push({
+      structName,
+      variantKey,
+      sizeKey,
+      borderRadius: borderRadiusToken,
+      gap: gapToken,
+      shapeHeight: shapeHeightToken,
+      paddingHorizontal: paddingHToken,
+      elevation: elevationToken,
+      defaultState: {
+        surfaceColor: toColorToken(bgDefaultRaw) || 'nil',
+        textColor: toColorToken(textDefaultRaw) || 'nil',
+        iconColor: toColorToken(iconDefaultRaw) || 'nil',
+        borderColor: toColorToken(borderDefaultRaw) || 'nil',
+      },
+      hoverState: {
+        surfaceColor: toColorToken(bgHoverRaw) || 'nil',
+        textColor: toColorToken(textHoverRaw) || 'nil',
+        iconColor: toColorToken(iconHoverRaw) || 'nil',
+        borderColor: toColorToken(borderHoverRaw) || 'nil',
+      },
+      pressedState: {
+        surfaceColor: toColorToken(bgPressedRaw) || 'nil',
+        textColor: toColorToken(textPressedRaw) || 'nil',
+        iconColor: toColorToken(iconPressedRaw) || 'nil',
+        borderColor: toColorToken(borderPressedRaw) || 'nil',
+      },
+      disabledState: {
+        surfaceColor: toColorToken(bgDisabledRaw) || 'nil',
+        textColor: toColorToken(textDisabledRaw) || 'nil',
+        iconColor: toColorToken(iconDisabledRaw) || 'nil',
+        borderColor: toColorToken(borderDisabledRaw) || 'nil',
+      },
+    });
+  }
+
+  function cap(s) {
+    return s.charAt(0).toUpperCase() + s.slice(1);
+  }
+
+  const rawButton = themeMain && themeMain.button;
+  // Primary, Secondary, Tertiary: regular, medium, small
+  for (const variant of ['primary', 'secondary', 'tertiary']) {
+    const node = buttonNode[variant];
+    const rawNode = rawButton && rawButton[variant];
+    if (!node) continue;
+    for (const size of ['regular', 'medium', 'small']) {
+      const structName = `DodadaButton${cap(variant)}${cap(size)}Tokens`;
+      addSpec(variant, size, structName, () => node, () => rawNode);
+    }
+  }
+  // Link: regular, medium, small
+  if (buttonNode.link && rawButton && rawButton.link) {
+    for (const size of ['regular', 'medium', 'small']) {
+      const structName = `DodadaButtonLink${cap(size)}Tokens`;
+      addSpec('link', size, structName, () => buttonNode.link, () => rawButton.link);
+    }
+  }
+  // Ghost: has height.regular/medium/small
+  if (buttonNode.ghost && rawButton && rawButton.ghost) {
+    for (const size of ['regular', 'medium', 'small']) {
+      const structName = `DodadaButtonGhost${cap(size)}Tokens`;
+      addSpec('ghost', size, structName, () => buttonNode.ghost, () => rawButton.ghost);
+    }
+  }
+  // OnlyIcon: filled, outline, ghost (no size)
+  if (buttonNode.onlyIcon && rawButton && rawButton.onlyIcon) {
+    for (const sub of ['filled', 'outline', 'ghost']) {
+      const node = buttonNode.onlyIcon[sub];
+      const rawNode = rawButton.onlyIcon[sub];
+      if (!node) continue;
+      const structName = `DodadaButtonOnlyIcon${cap(sub)}Tokens`;
+      addSpec(`onlyIcon${cap(sub)}`, null, structName, () => node, () => rawNode);
+    }
+  }
+
+  if (specs.length === 0) return;
+
+  const lines = [
+    '//',
+    '// AUTO-GENERATED FILE',
+    '// This file is overridden each time the code generator runs.',
+    '// For more details check `generate-platform-outputs.js` in the scripts folder.',
+    '//',
+    '',
+    'import CoreGraphics',
+    'import SwiftUI',
+    '',
+  ];
+
+  for (const spec of specs) {
+    lines.push(`/// \`${spec.structName}\` contains the tokens for the Button ${spec.variantKey}${spec.sizeKey ? ' ' + spec.sizeKey : ''} specification.`);
+    lines.push(`public struct ${spec.structName} {`);
+    lines.push('    public let borderRadius: DodadaRadiusToken?');
+    lines.push('    public let gap: DodadaSpacingToken?');
+    lines.push('    public let iconColor: DodadaColorToken?');
+    lines.push('    public let paddingHorizontal: DodadaSpacingToken?');
+    lines.push('    public let shapeHeight: DodadaSizingToken?');
+    lines.push('    public let surfaceColor: DodadaColorToken?');
+    lines.push('    public let textColor: DodadaColorToken?');
+    lines.push('    public let borderColor: DodadaColorToken?');
+    lines.push('    public let elevation: DodadaElevation?');
+    lines.push('');
+    const def = (s) => (s && s !== 'nil' ? '.' + s.split('.').pop() : 'nil');
+    lines.push('    private init(');
+    lines.push(`        borderRadius: DodadaRadiusToken? = ${def(spec.borderRadius)},`);
+    lines.push(`        gap: DodadaSpacingToken? = ${def(spec.gap)},`);
+    lines.push('        iconColor: DodadaColorToken? = nil,');
+    lines.push(`        paddingHorizontal: DodadaSpacingToken? = ${def(spec.paddingHorizontal)},`);
+    lines.push(`        shapeHeight: DodadaSizingToken? = ${def(spec.shapeHeight)},`);
+    lines.push('        surfaceColor: DodadaColorToken? = nil,');
+    lines.push('        textColor: DodadaColorToken? = nil,');
+    lines.push('        borderColor: DodadaColorToken? = nil,');
+    lines.push(`        elevation: DodadaElevation? = ${def(spec.elevation)}`);
+    lines.push('    ) {');
+    lines.push('        self.borderRadius = borderRadius');
+    lines.push('        self.gap = gap');
+    lines.push('        self.iconColor = iconColor');
+    lines.push('        self.paddingHorizontal = paddingHorizontal');
+    lines.push('        self.shapeHeight = shapeHeight');
+    lines.push('        self.surfaceColor = surfaceColor');
+    lines.push('        self.textColor = textColor');
+    lines.push('        self.borderColor = borderColor');
+    lines.push('        self.elevation = elevation');
+    lines.push('    }');
+    lines.push('');
+    const d = spec.defaultState;
+    const h = spec.hoverState;
+    const p = spec.pressedState;
+    const dis = spec.disabledState;
+    const tokShort = (s) => (s && s !== 'nil' ? '.' + s.split('.').pop() : 'nil');
+    lines.push(`    public static let defaultState = ${spec.structName}(`);
+    lines.push(`        iconColor: ${tokShort(d.iconColor)},`);
+    lines.push(`        surfaceColor: ${tokShort(d.surfaceColor)},`);
+    lines.push(`        textColor: ${tokShort(d.textColor)},`);
+    lines.push(`        borderColor: ${tokShort(d.borderColor)}`);
+    lines.push('    )');
+    lines.push('');
+    lines.push(`    public static let hoverState = ${spec.structName}(`);
+    lines.push(`        iconColor: ${tokShort(h.iconColor)},`);
+    lines.push(`        surfaceColor: ${tokShort(h.surfaceColor)},`);
+    lines.push(`        textColor: ${tokShort(h.textColor)},`);
+    lines.push(`        borderColor: ${tokShort(h.borderColor)}`);
+    lines.push('    )');
+    lines.push('');
+    lines.push(`    public static let pressedState = ${spec.structName}(`);
+    lines.push(`        iconColor: ${tokShort(p.iconColor)},`);
+    lines.push(`        surfaceColor: ${tokShort(p.surfaceColor)},`);
+    lines.push(`        textColor: ${tokShort(p.textColor)},`);
+    lines.push(`        borderColor: ${tokShort(p.borderColor)}`);
+    lines.push('    )');
+    lines.push('');
+    lines.push(`    public static let disabledState = ${spec.structName}(`);
+    lines.push(`        iconColor: ${tokShort(dis.iconColor)},`);
+    lines.push(`        surfaceColor: ${tokShort(dis.surfaceColor)},`);
+    lines.push(`        textColor: ${tokShort(dis.textColor)},`);
+    lines.push(`        borderColor: ${tokShort(dis.borderColor)}`);
+    lines.push('    )');
+    lines.push('}');
+    lines.push('');
+  }
+
+  fs.writeFileSync(path.join(componentDir, 'DodadaButtonThemeTokens.swift'), lines.join('\n'), 'utf8');
+}
+
+/**
+ * Generates Fenix-style input tokens for the iOS Input component.
+ * Single struct with base tokens (radius, padding, height, label/placeholder/content typography)
+ * and static lets per state (defaultState, focusState, errorState, disabledState).
+ *
+ * NOTE: These tokens are authored directly from the design spec and reference palette-level tokens.
+ */
+function emitFenixStyleInputTokens(json, iosDir) {
+  const inputDir = path.join(iosDir, 'Atoms', 'Input');
+  if (!fs.existsSync(inputDir)) fs.mkdirSync(inputDir, { recursive: true });
+
+  const lines = [
+    '//',
+    '// AUTO-GENERATED FILE',
+    '// This file is overridden each time the code generator runs.',
+    '// For more details check `generate-platform-outputs.js` in the scripts folder.',
+    '//',
+    '',
+    'import CoreGraphics',
+    'import SwiftUI',
+    '',
+    '/// `DodadaInputTokens` contains the tokens for the Input component.',
+    'public struct DodadaInputTokens {',
+    '    public let borderRadius: DodadaRadiusToken?',
+    '    public let paddingHorizontal: DodadaSpacingToken?',
+    '    public let shapeHeight: DodadaSizingToken?',
+    '    public let backgroundColor: DodadaColorToken?',
+    '    public let borderColor: DodadaColorToken?',
+    '    public let textColor: DodadaColorToken?',
+    '    public let iconColor: DodadaColorToken?',
+    '    public let labelColor: DodadaColorToken?',
+    '    public let optionalLabelColor: DodadaColorToken?',
+    '    public let placeholderColor: DodadaColorToken?',
+    '    public let contentTextColor: DodadaColorToken?',
+    '    public let asteriskColor: DodadaColorToken?',
+    '    public let labelTypography: DodadaTypographyToken?',
+    '    public let optionalTypography: DodadaTypographyToken?',
+    '    public let placeholderTypography: DodadaTypographyToken?',
+    '    public let contentTextTypography: DodadaTypographyToken?',
+    '',
+    '    private init(',
+    '        borderRadius: DodadaRadiusToken? = .md,',
+    '        paddingHorizontal: DodadaSpacingToken? = .md,',
+    '        shapeHeight: DodadaSizingToken? = .inputHeightLg,',
+    '        backgroundColor: DodadaColorToken? = nil,',
+    '        borderColor: DodadaColorToken? = nil,',
+    '        textColor: DodadaColorToken? = nil,',
+    '        iconColor: DodadaColorToken? = nil,',
+    '        labelColor: DodadaColorToken? = .secondaryValue500,',
+    '        optionalLabelColor: DodadaColorToken? = .secondaryValue400,',
+    '        placeholderColor: DodadaColorToken? = .secondaryValue400,',
+    '        contentTextColor: DodadaColorToken? = .secondaryValue500,',
+    '        asteriskColor: DodadaColorToken? = .errorValue500,',
+    '        labelTypography: DodadaTypographyToken? = .footnoteBold,',
+    '        optionalTypography: DodadaTypographyToken? = .footnoteRegular,',
+    '        placeholderTypography: DodadaTypographyToken? = .calloutRegular,',
+    '        contentTextTypography: DodadaTypographyToken? = .caption2Regular',
+    '    ) {',
+    '        self.borderRadius = borderRadius',
+    '        self.paddingHorizontal = paddingHorizontal',
+    '        self.shapeHeight = shapeHeight',
+    '        self.backgroundColor = backgroundColor',
+    '        self.borderColor = borderColor',
+    '        self.textColor = textColor',
+    '        self.iconColor = iconColor',
+    '        self.labelColor = labelColor',
+    '        self.optionalLabelColor = optionalLabelColor',
+    '        self.placeholderColor = placeholderColor',
+    '        self.contentTextColor = contentTextColor',
+    '        self.asteriskColor = asteriskColor',
+    '        self.labelTypography = labelTypography',
+    '        self.optionalTypography = optionalTypography',
+    '        self.placeholderTypography = placeholderTypography',
+    '        self.contentTextTypography = contentTextTypography',
+    '    }',
+    '',
+    '    /// Default state: border secondary200, background white, text secondary400, icons secondary500.',
+    '    public static let defaultState = DodadaInputTokens(',
+    '        backgroundColor: .neutralZero,',
+    '        borderColor: .secondaryValue200,',
+    '        textColor: .secondaryValue400,',
+    '        iconColor: .secondaryValue500',
+    '    )',
+    '',
+    '    /// Focus state: border secondary500, background white, text secondary500, icons secondary500.',
+    '    public static let focusState = DodadaInputTokens(',
+    '        backgroundColor: .neutralZero,',
+    '        borderColor: .secondaryValue500,',
+    '        textColor: .secondaryValue500,',
+    '        iconColor: .secondaryValue500',
+    '    )',
+    '',
+    '    /// Error state: border error500, background white, text secondary500, icons secondary500.',
+    '    public static let errorState = DodadaInputTokens(',
+    '        backgroundColor: .neutralZero,',
+    '        borderColor: .errorValue500,',
+    '        textColor: .secondaryValue500,',
+        '        iconColor: .secondaryValue500',
+    '    )',
+    '',
+    '    /// Disabled state: border secondary200, background secondary100, text secondary400, icons secondary500.',
+    '    public static let disabledState = DodadaInputTokens(',
+    '        backgroundColor: .secondaryValue100,',
+    '        borderColor: .secondaryValue200,',
+    '        textColor: .secondaryValue400,',
+    '        iconColor: .secondaryValue500',
+    '    )',
+    '}',
+    '',
+    'public extension DodadaInputTokens {',
+    '    /// Content text colors for different validation statuses.',
+    '    static let contentTextDefaultColor: DodadaColorToken = .secondaryValue500',
+    '    static let contentTextSuccessColor: DodadaColorToken = .successValue500',
+    '    static let contentTextErrorColor: DodadaColorToken = .errorValue500',
+    '}',
+    '',
+  ];
+
+  fs.writeFileSync(path.join(inputDir, 'DodadaInputThemeTokens.swift'), lines.join('\n'), 'utf8');
+}
+
+function getResolvedValue(node) {
+  if (!node || typeof node !== 'object') return undefined;
+  return node.value;
+}
+
 function emitKotlin(categoriesMap, textStyles, androidDir) {
   for (const [category, tokens] of categoriesMap) {
     const enumName = `Dodada${category.charAt(0).toUpperCase() + category.slice(1)}`;
@@ -976,6 +1439,8 @@ async function main() {
 
   emitThemeMain(json, DIST_DIR);
   emitDDDButtonThemeSwift(json, path.join(DIST_DIR, 'ios'));
+  emitFenixStyleButtonTokens(json, path.join(DIST_DIR, 'ios'));
+  emitFenixStyleInputTokens(json, path.join(DIST_DIR, 'ios'));
 
   // Eliminar archivos legacy monolíticos si aún existen
   const legacySwift = path.join(iosDir, 'DodadaTokens.swift');

@@ -25,6 +25,10 @@ const SOURCE_FILES = [
 
 function loadJSON(filePath) {
   const full = path.join(ROOT, filePath);
+  if (!fs.existsSync(full)) {
+    console.warn('Warning: token file not found, skipping:', filePath);
+    return {};
+  }
   const raw = fs.readFileSync(full, 'utf8');
   return JSON.parse(raw);
 }
