@@ -347,22 +347,22 @@
     },
     "text": {
       "primary": {
-        "$value": "{color.neutral.900}",
+        "$value": "{color.secondary.500}",
         "$type": "color",
         "$description": "Primary text color - main content, headings"
       },
       "secondary": {
-        "$value": "{color.neutral.700}",
+        "$value": "{color.secondary.400}",
         "$type": "color",
         "$description": "Secondary text color - supporting content"
       },
       "tertiary": {
-        "$value": "{color.neutral.600}",
+        "$value": "{color.secondary.300}",
         "$type": "color",
         "$description": "Tertiary text color - subtle hints, placeholders"
       },
       "disabled": {
-        "$value": "{color.neutral.400}",
+        "$value": "{color.secondary.400}",
         "$type": "color",
         "$description": "Disabled text color"
       },
